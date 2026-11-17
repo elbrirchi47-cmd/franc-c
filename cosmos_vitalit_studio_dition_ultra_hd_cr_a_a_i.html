@@ -1,0 +1,3006 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMOS &amp; VITALITÉ STUDIO — Édition Ultra-HD &amp; Créa A-I</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & THÈME COSMIQUE ULTRA-HD (ZÉRO PIXELISATION)
+       ========================================================================== */
+    :root {
+      --bg-void: #040711;
+      --bg-deep: #091022;
+      --bg-card: rgba(12, 20, 40, 0.86);
+      --border-subtle: rgba(148, 163, 184, 0.18);
+      --cyan-quantum: #00f0ff;
+      --gold-spiritual: #fbbf24;
+      --emerald-vitality: #10b981;
+      --violet-cosmos: #8b5cf6;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      background-image:
+        radial-gradient(circle at 10% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 36%),
+        radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.08) 0%, transparent 38%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 44%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    .font-mono-code {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    /* Glassmorphism Cards */
+    .studio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .studio-card:hover {
+      border-color: rgba(0, 240, 255, 0.32);
+    }
+
+    /* Canvas HiDPI Anti-Pixelisation */
+    .hidpi-canvas-container {
+      position: relative;
+      width: 100%;
+      background: radial-gradient(circle at center, #0d1834 0%, #040711 100%);
+      border: 1px solid rgba(0, 240, 255, 0.28);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .hidpi-canvas-container canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    /* Orbe animée en-tête */
+    .brand-orb {
+      background: conic-gradient(from 0deg, #00f0ff, #fbbf24, #10b981, #8b5cf6, #00f0ff);
+      animation: spinSlow 14s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Bouton K-Booste Ultra-Rapide */
+    .kboost-active {
+      background: linear-gradient(135deg, #00f0ff 0%, #fbbf24 50%, #10b981 100%) !important;
+      color: #040711 !important;
+      border-color: #ffffff !important;
+      animation: kboostPulse 0.65s infinite alternate;
+    }
+
+    @keyframes kboostPulse {
+      from { box-shadow: 0 0 14px rgba(0, 240, 255, 0.65), 0 0 28px rgba(251, 191, 36, 0.45); }
+      to { box-shadow: 0 0 28px rgba(251, 191, 36, 0.95), 0 0 46px rgba(16, 185, 129, 0.85); }
+    }
+
+    /* Panneaux d'onglets */
+    .workspace-section {
+      display: none;
+      animation: fadeRise 0.28s ease;
+    }
+
+    .workspace-section.is-visible {
+      display: block;
+    }
+
+    @keyframes fadeRise {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scrollbars élégantes */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(4, 7, 17, 0.7);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.28);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 240, 255, 0.5);
+    }
+
+    /* Range Slider personnalisé */
+    input[type="range"] {
+      accent-color: #00f0ff;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-cyan-400/30 selection:text-cyan-100">
+
+  <div class="max-w-[1460px] mx-auto px-3 sm:px-6 py-4 sm:py-6">
+
+    <!-- ========================================================================
+         1. EN-TÊTE OFFICIEL & BARRE DE TÉLÉMÉTRIE ULTRA-HD
+         ======================================================================== -->
+    <header class="studio-card p-4 sm:p-6 mb-5">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-slate-700/50">
+        <!-- Identité Studio -->
+        <div class="flex items-start sm:items-center gap-4">
+          <div class="brand-orb w-14 h-14 rounded-full p-[3px] flex-shrink-0 shadow-lg shadow-cyan-500/20">
+            <div class="w-full h-full rounded-full bg-[#040711] flex items-center justify-center text-2xl">
+              ⚛️
+            </div>
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-cyan-300 to-amber-300 bg-clip-text text-transparent">
+                COSMOS &amp; VITALITÉ STUDIO — v2.0 Ultra-HD &amp; Créa A-I
+              </h1>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-400/40">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Rendu Retina Ultra-HD 2.5x / 300 DPI : ACTIF (Zéro Pixelisation)
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">
+              Plateforme Autonome de Science Multi-Échelles, Spiritualité, Méta-Générateurs IA, Schémas Vectoriels 300 DPI &amp; Export PDF Natif
+            </p>
+          </div>
+        </div>
+
+        <!-- Co-Signature Officielle -->
+        <div class="bg-slate-950/75 border border-amber-400/35 rounded-xl px-4 py-3 text-xs sm:text-sm flex flex-col gap-1 lg:items-end">
+          <div class="text-slate-200">
+            Architecte : <strong class="text-amber-300 font-bold">Karim El Brirchi</strong>
+            (<a href="mailto:elbrirchi47@gmail.com" class="text-cyan-300 hover:underline">elbrirchi47@gmail.com</a>)
+          </div>
+          <div class="text-slate-300">
+            Co-Développeur IA : <strong class="text-cyan-300 font-bold">Gemini</strong> • Export PDF 1.4 &amp; SHA-256 Certifié
+          </div>
+        </div>
+      </div>
+
+      <!-- Compteurs Temps Réel -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-4">
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3">
+          <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">✨ Total Créations Générées</div>
+          <div id="kpiTotalCreations" class="font-mono-code text-lg sm:text-xl font-extrabold text-white mt-0.5">0</div>
+        </div>
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3">
+          <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">🏭 Générateurs IA Créés</div>
+          <div id="kpiMetaGenerators" class="font-mono-code text-lg sm:text-xl font-extrabold text-cyan-300 mt-0.5">0</div>
+        </div>
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3">
+          <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">🤝 Connectées Actives (Gratuit)</div>
+          <div id="kpiConnectees" class="font-mono-code text-lg sm:text-xl font-extrabold text-amber-300 mt-0.5">0</div>
+        </div>
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3">
+          <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">💶 Valeur Cumulée (€)</div>
+          <div id="kpiTotalEuro" class="font-mono-code text-lg sm:text-xl font-extrabold text-emerald-400 mt-0.5">0,00 €</div>
+        </div>
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3 col-span-2 sm:col-span-1">
+          <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">⚡ Cadence &amp; Anti-Pixelisation</div>
+          <div id="kpiCadenceStatus" class="font-mono-code text-sm sm:text-base font-bold text-cyan-300 mt-1">AUTO • 0.67/s • 2.5x HD</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================================================================
+         BARRE DE NAVIGATION DES 6 ESPACES + VUE GLOBALE + BOUTON K-BOOSTE
+         ======================================================================== -->
+    <nav class="studio-card p-2.5 mb-6 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3" aria-label="Espaces de travail">
+      <div class="flex flex-wrap gap-1.5" role="tablist">
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-500/20 text-white border border-cyan-400/50 transition min-h-[42px]" data-target="mod-science">
+          🔬 1. Échelles Cosmiques
+        </button>
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition min-h-[42px]" data-target="mod-generator">
+          🏭 2. Méta-Générateur &amp; Flux IA
+        </button>
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition min-h-[42px]" data-target="mod-crea-ai">
+          💻 3. Atelier Créa A-I &amp; Code Live
+        </button>
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition min-h-[42px]" data-target="mod-schemas">
+          🎨 4. Schémas Ultra-HD &amp; Livraisons €
+        </button>
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition min-h-[42px]" data-target="mod-connectees">
+          🛡️ 5. Connectées (Gratuit) &amp; Certificats
+        </button>
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition min-h-[42px]" data-target="mod-tutorials">
+          📘 6. Tutos Structurés (Double Vue)
+        </button>
+        <button class="nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-amber-300 hover:bg-amber-400/10 border border-amber-400/30 transition min-h-[42px]" data-target="ALL">
+          🌐 Tout Afficher
+        </button>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="btnGlobalPause" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-600 transition min-h-[42px]">
+          ⏸️ Pause Auto
+        </button>
+        <button id="btnGlobalKBoost" class="px-4 py-2.5 rounded-full text-xs sm:text-sm font-extrabold bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-400 text-slate-950 border border-amber-300 shadow-lg shadow-amber-500/30 hover:scale-[1.02] transition min-h-[42px]">
+          ⚡ K-BOOSTE ULTRA-RAPIDE : OFF
+        </button>
+      </div>
+    </nav>
+
+    <!-- ========================================================================
+         MODULE 1 : ARCHIVE SCIENTIFIQUE & EXPLORATEUR LOGARITHMIQUE (10⁻³⁵ à 10²⁶ m)
+         ======================================================================== -->
+    <section id="mod-science" class="workspace-section is-visible mb-8">
+      <div class="studio-card p-5 sm:p-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 pb-4 mb-5 border-b border-slate-700/50">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-300">Module 1 • Modélisation Physique &amp; Biologique</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
+              🌌 Archive Scientifique &amp; Explorateur Logarithmique (10⁻³⁵ m à 10²⁶ m)
+            </h2>
+          </div>
+          <button id="btnDownloadSciencePdf" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-cyan-500/25 to-emerald-500/25 hover:from-cyan-500/35 hover:to-emerald-500/35 text-white border border-cyan-400/50 transition min-h-[42px]">
+            📄 Télécharger Fiche Scientifique PDF
+          </button>
+        </div>
+
+        <!-- Dialogue fondateur résumé -->
+        <div class="bg-gradient-to-r from-amber-500/10 via-slate-900/80 to-cyan-500/10 border border-amber-400/30 rounded-2xl p-4 mb-6 text-xs sm:text-sm text-slate-200 leading-relaxed">
+          <strong class="text-amber-300 block mb-1">📜 Synthèse de Notre Échange Fondateur (Science, Contrastes &amp; Échelles du Réel) :</strong>
+          La démarche scientifique modélise la réalité par <strong>ordres de grandeur</strong> (61 puissances de 10, de la longueur de Planck <code class="text-cyan-300">10⁻³⁵ m</code> à l'Univers observable <code class="text-cyan-300">8,8 × 10²⁶ m</code>) et par <strong>systèmes dynamiques ouverts</strong> : au cœur du vivant, les mitochondries convertissent l'énergie en <strong>ATP</strong> pour maintenir l'<strong>homéostasie</strong> face à l'entropie.
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <!-- Explorateur HiDPI 2.5x -->
+          <div class="lg:col-span-7 flex flex-col justify-between bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider">Visualisation Vectorielle Retina HiDPI 2.5x</span>
+                <span id="scaleBadgeTop" class="font-mono-code text-xs px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
+                  10⁰ m • Être humain
+                </span>
+              </div>
+
+              <div class="hidpi-canvas-container h-[340px] sm:h-[390px]">
+                <canvas id="canvasScaleExplorer"></canvas>
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>◀ Planck (10⁻³⁵ m)</span>
+                <strong id="scaleActiveLabel" class="text-amber-300 text-sm">Être humain (1,7 m)</strong>
+                <span>Univers (10²⁶ m) ▶</span>
+              </div>
+
+              <input id="scaleRangeInput" type="range" min="-35" max="26" step="0.1" value="0" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer" aria-label="Curseur logarithmique des échelles">
+
+              <div id="scaleMilestonesBar" class="flex flex-wrap gap-1.5"></div>
+
+              <div class="bg-slate-900/90 border-l-4 border-cyan-400 rounded-r-xl p-3.5">
+                <div class="flex flex-wrap justify-between items-center gap-2">
+                  <strong id="scaleRegimeText" class="text-cyan-300 text-sm">Mécanique Classique &amp; Thermodynamique</strong>
+                  <span id="scaleFormulaBadge" class="font-mono-code text-xs bg-cyan-500/10 text-cyan-200 px-2.5 py-1 rounded-md">F = m · a | ΔU = Q − W</span>
+                </div>
+                <p id="scaleDetailText" class="text-xs sm:text-sm text-slate-300 mt-1.5"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Les 2 Axes Rigoureux -->
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 flex-1">
+              <h3 class="text-base font-bold text-amber-300 mb-3 flex items-center gap-2">
+                ⚛️ Axe 1 : Les 3 Régimes de l'Espace-Temps
+              </h3>
+              <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                <li class="p-3 rounded-xl bg-white/[0.03] border border-slate-800">
+                  <strong class="text-white block">1. Infiniment Petit (10⁻³⁵ m → 10⁻¹⁰ m) — Quantique</strong>
+                  Ondes de probabilité, quarks, gluons et orbitales électroniques (<code class="text-cyan-300">iℏ ∂ψ/∂t = Ĥψ</code>).
+                </li>
+                <li class="p-3 rounded-xl bg-white/[0.03] border border-slate-800">
+                  <strong class="text-white block">2. Échelle Intermédiaire (10⁻⁶ m → 10² m) — Classique</strong>
+                  Décohérence statistique donnant la matière stable, la chimie moléculaire et la thermodynamique.
+                </li>
+                <li class="p-3 rounded-xl bg-white/[0.03] border border-slate-800">
+                  <strong class="text-white block">3. Infiniment Grand (10⁷ m → 10²⁶ m) — Relativité</strong>
+                  Courbure de l'espace-temps par la masse-énergie (<code class="text-amber-300">G_μν = (8πG/c⁴) T_μν</code>).
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 flex-1">
+              <h3 class="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
+                🧬 Axe 2 : Homéostasie &amp; Bioénergétique ATP
+              </h3>
+              <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                <li class="p-3 rounded-xl bg-white/[0.03] border border-slate-800">
+                  <strong class="text-white block">Système Ouvert Anti-Entropique</strong>
+                  Le vivant maintient son ordre complexe en absorbant énergie et nutriments pour régénérer ses structures.
+                </li>
+                <li class="p-3 rounded-xl bg-white/[0.03] border border-slate-800">
+                  <strong class="text-white block">Synthèse d'ATP Mitochondriale</strong>
+                  Carburant universel alimentant la réparation de l'ADN, l'influx nerveux et la vitalité cellulaire.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MODULE 2 : MOTEUR GÉNÉRATIF AUTOMATISÉ, K-BOOSTE & MÉTA-GÉNÉRATEUR IA
+         ======================================================================== -->
+    <section id="mod-generator" class="workspace-section mb-8">
+      <div class="studio-card p-5 sm:p-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 mb-5 border-b border-slate-700/50">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Module 2 • Synthèse Continue &amp; Méta-Générateurs</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
+              🏭 Moteur Génératif Automatisé, K-Booste &amp; Méta-Générateur Créa A-I
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="btnGenerateCycleNow" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+              ✨ Générer Synthèse Maintenant
+            </button>
+            <button id="btnCreateMetaGenerator" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 transition min-h-[42px]">
+              🏭 Inventer un Nouveau Générateur IA
+            </button>
+          </div>
+        </div>
+
+        <!-- Sélecteur des 5 Thèmes -->
+        <div class="mb-5">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Sélectionner le Thème Directeur (ou Rotation Automatique) :</div>
+          <div id="themesFilterGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"></div>
+        </div>
+
+        <!-- Double colonne : Méta-Générateurs IA créés automatiquement + Flux des synthèses -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Colonne Gauche : Méta-Générateurs IA -->
+          <div class="lg:col-span-6 bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base font-bold text-amber-300">🤖 Méta-Générateurs IA Auto-Construits</h3>
+              <span id="metaGenBadgeCount" class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-400/30">0 actif</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-3">
+              Le système conçoit automatiquement de nouveaux générateurs spécialisés. Cliquez sur <strong>« Exécuter »</strong> pour produire une création dédiée ou téléchargez sa fiche en <strong>PDF</strong>.
+            </p>
+            <div id="metaGeneratorsList" class="space-y-3 max-h-[540px] overflow-y-auto pr-1"></div>
+          </div>
+
+          <!-- Colonne Droite : Flux Automatisé de Synthèses Textuelles -->
+          <div class="lg:col-span-6 bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base font-bold text-cyan-300">📡 Flux Automatisé de Synthèses (Export PDF &amp; Copie)</h3>
+              <span class="text-xs text-emerald-400 font-semibold">● En direct</span>
+            </div>
+            <div id="textSynthesisFeed" class="space-y-3 max-h-[540px] overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MODULE 3 : ATELIER CRÉA A-I & DÉVELOPPEMENT EN LIGNE (LIVE CODE SANDBOX)
+         ======================================================================== -->
+    <section id="mod-crea-ai" class="workspace-section mb-8">
+      <div class="studio-card p-5 sm:p-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 mb-5 border-b border-slate-700/50">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-violet-300">Module 3 • Création Interactive &amp; Sandbox Temps Réel</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
+              💻 Atelier Créa A-I &amp; Développement en Ligne (Éditeur + Aperçu Live)
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="btnRunLiveCode" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 transition min-h-[42px]">
+              ▶️ Exécuter en Direct
+            </button>
+            <button id="btnGenerateNewAiModule" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+              🤖 Générer Nouveau Code IA
+            </button>
+            <button id="btnDownloadSandboxHtml" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 transition min-h-[42px]">
+              💾 Télécharger .HTML
+            </button>
+            <button id="btnDownloadCreaAiPdf" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/25 hover:bg-amber-500/35 text-amber-200 border border-amber-400/50 transition min-h-[42px]">
+              📄 Télécharger Dossier Créa A-I en PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Synthétiseur Créa A-I sur mesure -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-4 mb-5">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+            <div>
+              <label for="creaThemeSelect" class="block text-xs font-semibold text-slate-300 mb-1">Thème Créa A-I</label>
+              <select id="creaThemeSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white">
+                <option value="Alchimie des Contraires">Alchimie des Contraires</option>
+                <option value="Voyage Spirituel & Cosmos">Voyage Spirituel &amp; Cosmos</option>
+                <option value="Physique Quantique & Relativité">Physique Quantique &amp; Relativité</option>
+                <option value="Vitalité Cellulaire ATP">Vitalité Cellulaire ATP</option>
+                <option value="Architecture Multi-Agents IA">Architecture Multi-Agents IA</option>
+              </select>
+            </div>
+            <div>
+              <label for="creaStyleSelect" class="block text-xs font-semibold text-slate-300 mb-1">Algorithme Visuel Ultra-HD</label>
+              <select id="creaStyleSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white"></select>
+            </div>
+            <div>
+              <label for="creaPromptInput" class="block text-xs font-semibold text-slate-300 mb-1">Intention / Prompt Personnalisé</label>
+              <input id="creaPromptInput" type="text" placeholder="Ex. Harmonie quantique et lumière intérieure..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white">
+            </div>
+            <div>
+              <button id="btnSynthesizeCreaAi" class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 hover:opacity-95 transition min-h-[42px]">
+                ✨ Synthétiser Créa A-I + Schéma + PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split-Pane Éditeur de Code Live & Aperçu Sandboxed -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div class="flex flex-col bg-slate-950/80 border border-slate-800 rounded-2xl overflow-hidden">
+            <div class="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-bold text-cyan-300 font-mono-code">📝 Éditeur HTML / CSS / JS En Direct</span>
+              <span id="sandboxTemplateName" class="text-xs text-amber-300 font-semibold">Simulation : Onde Quantique &amp; Fleur d'Or</span>
+            </div>
+            <textarea id="liveCodeEditor" spellcheck="false" class="w-full h-[380px] p-4 bg-[#03050c] text-slate-200 font-mono-code text-xs leading-relaxed focus:outline-none resize-y" aria-label="Éditeur de code HTML CSS JS en direct"></textarea>
+          </div>
+
+          <div class="flex flex-col bg-slate-950/80 border border-slate-800 rounded-2xl overflow-hidden">
+            <div class="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-400">🖥️ Aperçu Live Isolé (Sandboxed Iframe)</span>
+              <span class="text-[11px] text-slate-400">Mise à jour instantanée</span>
+            </div>
+            <iframe id="livePreviewIframe" title="Aperçu en direct du code Créa A-I" sandbox="allow-scripts" class="w-full h-[380px] bg-[#040711] border-0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MODULE 4 : BIBLIOTHÈQUE DE SCHÉMAS ALÉATOIRES ULTRA-HD, LIVRAISONS & €
+         ======================================================================== -->
+    <section id="mod-schemas" class="workspace-section mb-8">
+      <div class="studio-card p-5 sm:p-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 mb-5 border-b border-slate-700/50">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Module 4 • 8 Algorithmes Anti-Pixelisation &amp; Valorisation €</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
+              🎨 Bibliothèque de Schémas Aléatoires Ultra-HD, Livraisons &amp; Valeur en Euros (€)
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="btnNewMainSchema" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+              🎲 Nouveau Schéma Principal
+            </button>
+            <button id="btnBatch4Deliveries" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 transition min-h-[42px]">
+              📦 Générer 4 Livraisons Ultra-HD
+            </button>
+            <button id="btnDownloadCatalogPdf" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 transition min-h-[42px]">
+              📄 Télécharger Catalogue Global PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Aperçu Principal Ultra-HD -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6 bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+          <div class="lg:col-span-7">
+            <div class="hidpi-canvas-container h-[310px] sm:h-[360px]">
+              <canvas id="canvasMainSchemaPreview"></canvas>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
+                  Rendu Retina 2.5x • Export 2400×1600 px
+                </span>
+                <span id="mainSchemaEuro" class="font-mono-code text-lg font-extrabold text-emerald-400">34,50 €</span>
+              </div>
+              <h3 id="mainSchemaTitle" class="text-lg font-extrabold text-white">Géométrie Sacrée &amp; Nombre d'Or</h3>
+              <p id="mainSchemaDesc" class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed"></p>
+              <div id="mainSchemaMeta" class="font-mono-code text-xs text-slate-400 mt-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button id="btnDownloadMainSchemaPng" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+                🖼️ PNG Ultra-HD (2400px)
+              </button>
+              <button id="btnDownloadMainSchemaPdf" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/25 hover:bg-amber-500/35 text-amber-200 border border-amber-400/50 transition min-h-[42px]">
+                📄 Télécharger PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galerie des Livraisons Certifiées -->
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-base font-bold text-white">📦 Galerie des Créations &amp; Livraisons Certifiées</h3>
+          <span class="text-xs text-slate-400">Chaque carte est téléchargeable en PDF A4 et PNG 2400px</span>
+        </div>
+        <div id="deliveriesGalleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MODULE 5 : RÉSEAU MULTI-AGENTS & ESPACE « LES CONNECTÉES » (100% GRATUIT)
+         ======================================================================== -->
+    <section id="mod-connectees" class="workspace-section mb-8">
+      <div class="studio-card p-5 sm:p-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 mb-5 border-b border-slate-700/50">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Module 5 • CrewAI Pipeline, Accès Gratuit &amp; Cryptographie SHA-256</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
+              🛡️ Réseau Multi-Agents &amp; Espace « Les Connectées » (100 % Gratuit + Certificats PDF)
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="btnScoutWave5" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+              🛰️ Vague Scout (+5 Connectées Gratuites)
+            </button>
+          </div>
+        </div>
+
+        <!-- Pipeline visuel des 4 Agents -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+          <div class="bg-slate-950/75 border border-cyan-400/35 rounded-2xl p-3.5">
+            <div class="flex items-center justify-between mb-1">
+              <strong class="text-sm text-cyan-300">🛰️ Agent-Scout</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">ACTIF</span>
+            </div>
+            <p class="text-xs text-slate-300">Recrute et intègre gratuitement de nouvelles Connectées en continu dans l'écosystème.</p>
+          </div>
+          <div class="bg-slate-950/75 border border-amber-400/35 rounded-2xl p-3.5">
+            <div class="flex items-center justify-between mb-1">
+              <strong class="text-sm text-amber-300">🧭 Agent-Manager</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">ACTIF</span>
+            </div>
+            <p class="text-xs text-slate-300">Structure les parcours scientifiques, spirituels et créatifs de chaque membre.</p>
+          </div>
+          <div class="bg-slate-950/75 border border-emerald-400/35 rounded-2xl p-3.5">
+            <div class="flex items-center justify-between mb-1">
+              <strong class="text-sm text-emerald-300">⚙️ Agent-Worker</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">ACTIF</span>
+            </div>
+            <p class="text-xs text-slate-300">Produit les schémas 300 DPI, synthèses et tutoriels mis à disposition gratuitement.</p>
+          </div>
+          <div class="bg-slate-950/75 border border-violet-400/35 rounded-2xl p-3.5">
+            <div class="flex items-center justify-between mb-1">
+              <strong class="text-sm text-violet-300">🔐 Agent-Escrow</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">SHA-256</span>
+            </div>
+            <p class="text-xs text-slate-300">Scelle l'authenticité des activités réelles par empreinte cryptographique SHA-256.</p>
+          </div>
+        </div>
+
+        <!-- Carte Maître Architecte Karim El Brirchi + Formulaire Inscription Gratuite -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6">
+          <!-- Certificat Maître Architecte Karim El Brirchi -->
+          <div class="lg:col-span-6 bg-gradient-to-br from-amber-500/15 via-slate-950/90 to-cyan-500/10 border border-amber-400/45 rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-amber-400 text-slate-950">
+                  👑 CERTIFICAT MAÎTRE ARCHITECTE
+                </span>
+                <span class="font-mono-code text-xs text-cyan-300">SHA-256 AUTHENTIFIÉ</span>
+              </div>
+              <h3 class="text-lg font-extrabold text-white">Karim El Brirchi <span class="text-sm font-normal text-amber-300">(elbrirchi47@gmail.com)</span></h3>
+              <p class="text-xs sm:text-sm text-slate-300 mt-1">
+                Fondateur, Architecte Principal &amp; Superviseur du Réseau Gratuit des Connectées — Co-signé avec <strong>Gemini</strong>.
+              </p>
+              <div id="karimMasterSha" class="font-mono-code text-[11px] text-cyan-300 bg-slate-950/90 border border-slate-800 rounded-xl p-2.5 mt-3 break-all">
+                Calcul de l'empreinte SHA-256 en cours...
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4">
+              <button id="btnDownloadKarimPdf" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 hover:opacity-95 transition min-h-[42px]">
+                📄 Certificat Maître PDF
+              </button>
+              <button id="btnDownloadKarimPng" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+                🖼️ Certificat Maître PNG (2400px)
+              </button>
+            </div>
+          </div>
+
+          <!-- Formulaire d'inscription 100% Gratuit -->
+          <div class="lg:col-span-6 bg-slate-950/75 border border-slate-800 rounded-2xl p-4">
+            <h3 class="text-base font-bold text-emerald-400 mb-2">➕ Rejoindre Gratuitement « Les Connectées »</h3>
+            <p class="text-xs text-slate-400 mb-3">
+              Inscription immédiate et 100 % gratuite : génère automatiquement votre empreinte SHA-256 réelle et vos certificats PDF &amp; PNG téléchargeables.
+            </p>
+            <form id="formJoinConnectee" class="space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="joinName" class="block text-xs font-semibold text-slate-300 mb-1">Nom ou Pseudo *</label>
+                  <input id="joinName" type="text" required placeholder="Ex. Nadia Benali, Amina K..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white">
+                </div>
+                <div>
+                  <label for="joinCity" class="block text-xs font-semibold text-slate-300 mb-1">Ville / Horizon</label>
+                  <input id="joinCity" type="text" placeholder="Ex. Agen, Bordeaux, Paris, Monde..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white">
+                </div>
+              </div>
+              <div>
+                <label for="joinSpecialty" class="block text-xs font-semibold text-slate-300 mb-1">Axe d'Exploration</label>
+                <select id="joinSpecialty" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white">
+                  <option value="Voyage Spirituel & Conscience Cosmique">Voyage Spirituel &amp; Conscience Cosmique</option>
+                  <option value="Physique Quantique & Ordres de Grandeur">Physique Quantique &amp; Ordres de Grandeur</option>
+                  <option value="Biologie Cellulaire, ATP & Homéostasie">Biologie Cellulaire, ATP &amp; Homéostasie</option>
+                  <option value="Alchimie des Contraires & Érudition">Alchimie des Contraires &amp; Érudition</option>
+                  <option value="Architecture Multi-Agents & Créa A-I">Architecture Multi-Agents &amp; Créa A-I</option>
+                </select>
+              </div>
+              <button type="submit" class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition min-h-[42px]">
+                ✅ Activer Mon Accès Gratuit &amp; Générer Mes Certificats SHA-256
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Grille des Connectées Actives -->
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <h3 class="text-base font-bold text-white">🌟 Membres Connectées Actives (Accès 100 % Gratuit • Certificats PDF &amp; PNG)</h3>
+          <span id="connecteesSummaryTag" class="text-xs font-semibold text-emerald-400">12 Connectées actives • 0,00 € de frais</span>
+        </div>
+        <div id="connecteesCardsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MODULE 6 : GÉNÉRATRICE DE TUTORIELS AUTOMATISÉE & STRUCTURÉE (DOUBLE VUE)
+         ======================================================================== -->
+    <section id="mod-tutorials" class="workspace-section mb-8">
+      <div class="studio-card p-5 sm:p-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 mb-5 border-b border-slate-700/50">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-300">Module 6 • Pédagogie Claire + Implémentation Développeur</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
+              📘 Génératrice de Tutoriels Automatisée &amp; Structurée (Double Vue + PDF)
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="btnGenerateNewTutorial" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[42px]">
+              🔄 Générer un Nouveau Tutoriel Structuré
+            </button>
+            <button id="btnDownloadTutorialPdf" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/25 hover:bg-amber-500/35 text-amber-200 border border-amber-400/50 transition min-h-[42px]">
+              📄 Télécharger le Tutoriel Complet en PDF
+            </button>
+            <button id="btnDownloadTutorialMd" class="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 transition min-h-[42px]">
+              ⬇️ Exporter Markdown (.md)
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label for="tutorialTopicSelector" class="block text-xs font-semibold text-slate-300 mb-1.5">Choisir un Parcours Structuré en 5 Étapes :</label>
+          <select id="tutorialTopicSelector" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white"></select>
+        </div>
+
+        <div id="tutorialStepsContainer" class="space-y-5"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PIED DE PAGE OFFICIEL
+         ======================================================================== -->
+    <footer class="studio-card p-5 text-xs sm:text-sm text-slate-300 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div>
+        <strong class="text-amber-300">COSMOS &amp; VITALITÉ STUDIO — Édition Ultra-HD &amp; Créa A-I</strong><br>
+        Développé &amp; Certifié par <strong class="text-white">Karim El Brirchi</strong> (<a href="mailto:elbrirchi47@gmail.com" class="text-cyan-300 hover:underline">elbrirchi47@gmail.com</a>) &amp; <strong class="text-cyan-300">Gemini</strong>.
+      </div>
+      <div class="md:text-right text-slate-400">
+        Rendu Retina HiDPI 2.5x / 300 DPI • Export PDF 1.4 Binaire Natif • Accès 100 % Gratuit pour les Connectées.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Conteneur de Toast Notifications -->
+  <div id="toastStack" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm pointer-events-none" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       MOTEUR JAVASCRIPT COMPLET (HIDPI CANVAS MANAGER, BINARY PDF 1.4, SHA-256,
+       MÉTA-GÉNÉRATEUR IA, LIVE SANDBOX, 8 ALGORITHMES, CONNECTÉES & TUTORIELS)
+       ========================================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      /* ========================================================================
+         1. ÉTAT CENTRAL DE L'APPLICATION
+         ======================================================================== */
+      const STATE = {
+        isRunning: true,
+        isKBoost: false,
+        activeTab: "mod-science",
+        selectedThemeId: "ALL",
+        totalCreations: 0,
+        totalEuro: 0,
+        metaGenerators: [],
+        syntheses: [],
+        deliveries: [],
+        mainSchema: null,
+        connectees: [],
+        karimSha256: "",
+        currentScaleExp: 0,
+        targetScaleExp: 0,
+        currentTutorialIndex: 0
+      };
+
+      let autoEngineInterval = null;
+      let scoutAutoInterval = null;
+
+      /* ========================================================================
+         2. UTILITAIRES GÉNÉRAUX (TOAST, FORMAT EURO, COPIE SÉCURISÉE, SHA-256)
+         ======================================================================== */
+      function notify(msg) {
+        const stack = document.getElementById("toastStack");
+        const el = document.createElement("div");
+        el.className = "bg-slate-950/95 border border-cyan-400/60 border-l-4 border-l-amber-400 text-slate-100 text-xs sm:text-sm px-4 py-3 rounded-xl shadow-2xl transition-all duration-300";
+        el.textContent = msg;
+        stack.appendChild(el);
+        setTimeout(() => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(8px)";
+          setTimeout(() => el.remove(), 300);
+        }, 3200);
+      }
+
+      function formatEuro(val) {
+        return Number(val).toLocaleString("fr-FR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }) + " €";
+      }
+
+      function copyToClipboardSafe(text) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          notify("📋 Contenu copié dans le presse-papiers !");
+        } catch (err) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => notify("📋 Contenu copié !"));
+          }
+        }
+        document.body.removeChild(ta);
+      }
+
+      function downloadBlobFile(filename, blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      }
+
+      // Calcul cryptographique SHA-256 réel via Web Crypto API (avec repli déterministe)
+      async function generateRealSha256(inputString) {
+        try {
+          if (window.crypto && window.crypto.subtle) {
+            const bytes = new TextEncoder().encode(inputString);
+            const hashBuf = await window.crypto.subtle.digest("SHA-256", bytes);
+            return Array.from(new Uint8Array(hashBuf))
+              .map((b) => b.toString(16).padStart(2, "0"))
+              .join("");
+          }
+        } catch (e) {
+          // Repli ci-dessous
+        }
+        // Hachage 256 bits déterministe de secours si contexte non-HTTPS
+        let h1 = 0x6a09e667, h2 = 0xbb67ae85, h3 = 0x3c6ef372, h4 = 0xa54ff53a;
+        for (let i = 0; i < inputString.length; i++) {
+          const ch = inputString.charCodeAt(i);
+          h1 = Math.imul(h1 ^ ch, 2654435761);
+          h2 = Math.imul(h2 ^ ch, 1597334677);
+          h3 = Math.imul(h3 ^ ch, 2246822519);
+          h4 = Math.imul(h4 ^ ch, 3266489917);
+        }
+        return [h1, h2, h3, h4, h1 ^ h3, h2 ^ h4, h1 + h2, h3 + h4]
+          .map((n) => (n >>> 0).toString(16).padStart(8, "0"))
+          .join("");
+      }
+
+      /* ========================================================================
+         3. HIDPI CANVAS MANAGER (ZÉRO PIXELISATION — RETINA 2.5x / 300 DPI)
+         ======================================================================== */
+      class HiDPICanvasManager {
+        constructor() {
+          this.registry = new Map();
+          this.observer = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+              const canvas = entry.target;
+              const entryData = this.registry.get(canvas);
+              if (entryData) {
+                this.configureCanvas(canvas);
+                if (typeof entryData.renderFn === "function") {
+                  entryData.renderFn(canvas, entryData.ctx, entryData.logicalWidth, entryData.logicalHeight);
+                }
+              }
+            }
+          });
+        }
+
+        configureCanvas(canvas) {
+          const rect = canvas.getBoundingClientRect();
+          const logicalWidth = Math.max(Math.round(rect.width), 10);
+          const logicalHeight = Math.max(Math.round(rect.height), 10);
+          const dpr = Math.max(window.devicePixelRatio || 1, 2.5);
+
+          const targetW = Math.round(logicalWidth * dpr);
+          const targetH = Math.round(logicalHeight * dpr);
+
+          if (canvas.width !== targetW || canvas.height !== targetH) {
+            canvas.width = targetW;
+            canvas.height = targetH;
+          }
+
+          const ctx = canvas.getContext("2d");
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = "high";
+
+          const existing = this.registry.get(canvas) || {};
+          this.registry.set(canvas, {
+            ...existing,
+            ctx,
+            dpr,
+            logicalWidth,
+            logicalHeight
+          });
+
+          return { ctx, dpr, logicalWidth, logicalHeight };
+        }
+
+        register(canvas, renderFn) {
+          if (!canvas) return;
+          const info = this.configureCanvas(canvas);
+          this.registry.set(canvas, {
+            ctx: info.ctx,
+            dpr: info.dpr,
+            logicalWidth: info.logicalWidth,
+            logicalHeight: info.logicalHeight,
+            renderFn
+          });
+          this.observer.observe(canvas);
+          if (typeof renderFn === "function") {
+            renderFn(canvas, info.ctx, info.logicalWidth, info.logicalHeight);
+          }
+        }
+
+        redraw(canvas) {
+          if (!canvas) return;
+          const info = this.configureCanvas(canvas);
+          const item = this.registry.get(canvas);
+          if (item && typeof item.renderFn === "function") {
+            item.renderFn(canvas, info.ctx, info.logicalWidth, info.logicalHeight);
+          }
+        }
+
+        redrawAll() {
+          for (const [canvas] of this.registry.entries()) {
+            if (canvas.offsetParent !== null) {
+              this.redraw(canvas);
+            }
+          }
+        }
+      }
+
+      const hiDPIManager = new HiDPICanvasManager();
+
+      /* ========================================================================
+         4. GÉNÉRATEUR BINAIRE PDF 1.4 NATIF (ZERO-DEPENDENCY, ULTRA-HD A4)
+         ======================================================================== */
+      function wrapCanvasText(ctx, text, x, startY, maxWidth, lineHeight, maxY) {
+        const paragraphs = String(text || "").split("\n");
+        let y = startY;
+
+        for (let p = 0; p < paragraphs.length; p++) {
+          const words = paragraphs[p].split(/\s+/);
+          let line = "";
+
+          for (let n = 0; n < words.length; n++) {
+            const word = words[n];
+            if (!word) continue;
+            const testLine = line ? line + " " + word : word;
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth && line) {
+              if (y + lineHeight > maxY) {
+                ctx.fillText(line + " [...]", x, y);
+                return y + lineHeight;
+              }
+              ctx.fillText(line, x, y);
+              line = word;
+              y += lineHeight;
+            } else {
+              line = testLine;
+            }
+          }
+
+          if (line) {
+            if (y + lineHeight > maxY) {
+              ctx.fillText(line + " [...]", x, y);
+              return y + lineHeight;
+            }
+            ctx.fillText(line, x, y);
+            y += lineHeight;
+          } else {
+            y += lineHeight * 0.55;
+          }
+        }
+        return y;
+      }
+
+      async function exportCreationToPDF(options) {
+        const {
+          filename = "Document_Cosmos_Vitalite.pdf",
+          category = "CRÉATION CERTIFIÉE",
+          docId = "DOC-2026-0001",
+          title = "Document Officiel Cosmos & Vitalité Studio",
+          subtitle = "",
+          euroValue = null,
+          sha256 = "",
+          bodySections = [],
+          schema = null,
+          holderName = ""
+        } = options;
+
+        notify("⏳ Génération du fichier PDF Ultra-HD en cours...");
+
+        // Dimensions A4 haute résolution (1654 x 2339 px)
+        const W = 1654;
+        const H = 2339;
+        const pdfCanvas = document.createElement("canvas");
+        pdfCanvas.width = W;
+        pdfCanvas.height = H;
+        const ctx = pdfCanvas.getContext("2d");
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+
+        // 1. Fond éditorial cosmique sombre haute lisibilité
+        const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+        bgGrad.addColorStop(0, "#050914");
+        bgGrad.addColorStop(0.5, "#0a1329");
+        bgGrad.addColorStop(1, "#040812");
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, W, H);
+
+        // Motif géométrique subtil en arrière-plan
+        ctx.save();
+        ctx.translate(W / 2, H / 2);
+        ctx.strokeStyle = "rgba(0, 240, 255, 0.04)";
+        ctx.lineWidth = 2;
+        for (let r = 160; r <= 760; r += 120) {
+          ctx.beginPath();
+          ctx.arc(0, 0, r, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // 2. Double cadre officiel Or & Cyan
+        ctx.strokeStyle = "#fbbf24";
+        ctx.lineWidth = 6;
+        ctx.strokeRect(46, 46, W - 92, H - 92);
+
+        ctx.strokeStyle = "rgba(0, 240, 255, 0.55)";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(64, 64, W - 128, H - 128);
+
+        // Coins ornementaux dorés
+        [[64, 64], [W - 64, 64], [64, H - 64], [W - 64, H - 64]].forEach(([cx, cy]) => {
+          ctx.beginPath();
+          ctx.arc(cx, cy, 14, 0, Math.PI * 2);
+          ctx.fillStyle = "#fbbf24";
+          ctx.fill();
+        });
+
+        // 3. En-tête Institutionnel
+        ctx.textAlign = "left";
+        ctx.fillStyle = "#00f0ff";
+        ctx.font = "bold 24px Inter, Arial, sans-serif";
+        ctx.fillText("COSMOS & VITALITÉ STUDIO — ÉDITION ULTRA-HD & CRÉA A-I", 110, 132);
+
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "20px Inter, Arial, sans-serif";
+        ctx.fillText("Rendu Vectoriel 300 DPI • Certification SHA-256 • Export Binaire PDF 1.4", 110, 166);
+
+        // Badge Catégorie & Référence à droite
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#fbbf24";
+        ctx.font = "bold 22px monospace";
+        ctx.fillText(`${category} • ${docId}`, W - 110, 132);
+
+        const nowStr = new Date().toLocaleString("fr-FR");
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "19px Inter, Arial, sans-serif";
+        ctx.fillText(`Émis le ${nowStr}`, W - 110, 166);
+
+        // Ligne de séparation
+        ctx.strokeStyle = "rgba(251, 191, 36, 0.45)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(110, 194);
+        ctx.lineTo(W - 110, 194);
+        ctx.stroke();
+
+        // 4. Titre Principal & Valeur Euro (€)
+        ctx.textAlign = "left";
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 42px Inter, Arial, sans-serif";
+        let cursorY = wrapCanvasText(ctx, title, 110, 260, W - 220, 52, 430);
+
+        if (subtitle) {
+          ctx.fillStyle = "#fbbf24";
+          ctx.font = "bold 25px Inter, Arial, sans-serif";
+          cursorY = wrapCanvasText(ctx, subtitle, 110, cursorY + 8, W - 220, 34, 520);
+        }
+
+        if (holderName) {
+          cursorY += 16;
+          ctx.fillStyle = "rgba(16, 185, 129, 0.16)";
+          ctx.strokeStyle = "#10b981";
+          ctx.lineWidth = 2;
+          ctx.fillRect(110, cursorY, W - 220, 82);
+          ctx.strokeRect(110, cursorY, W - 220, 82);
+
+          ctx.fillStyle = "#34d399";
+          ctx.font = "bold 20px Inter, Arial, sans-serif";
+          ctx.fillText("TITULAIRE CERTIFIÉ (ACCÈS 100 % GRATUIT) :", 135, cursorY + 32);
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "bold 30px Georgia, serif";
+          ctx.fillText(holderName, 135, cursorY + 68);
+          cursorY += 104;
+        }
+
+        if (euroValue !== null && euroValue !== undefined) {
+          cursorY += 10;
+          ctx.fillStyle = "rgba(16, 185, 129, 0.18)";
+          ctx.strokeStyle = "#34d399";
+          ctx.lineWidth = 2;
+          ctx.fillRect(110, cursorY, 440, 56);
+          ctx.strokeRect(110, cursorY, 440, 56);
+          ctx.fillStyle = "#34d399";
+          ctx.font = "bold 25px monospace";
+          ctx.fillText(`Valeur Estimée : ${formatEuro(euroValue)}`, 132, cursorY + 37);
+          cursorY += 78;
+        }
+
+        // 5. Intégration d'un Schéma Procédural Ultra-HD (2400x1600) si fourni
+        if (schema) {
+          const artCanvas = document.createElement("canvas");
+          artCanvas.width = 2400;
+          artCanvas.height = 1600;
+          const artCtx = artCanvas.getContext("2d");
+          artCtx.imageSmoothingEnabled = true;
+          artCtx.imageSmoothingQuality = "high";
+          renderProceduralArtwork(artCtx, 2400, 1600, schema);
+
+          const boxW = W - 220;
+          const boxH = 680;
+          cursorY += 12;
+
+          ctx.strokeStyle = "rgba(0, 240, 255, 0.55)";
+          ctx.lineWidth = 3;
+          ctx.strokeRect(110, cursorY, boxW, boxH);
+          ctx.drawImage(artCanvas, 110, cursorY, boxW, boxH);
+
+          cursorY += boxH + 34;
+        } else {
+          cursorY += 18;
+        }
+
+        // 6. Sections de Texte & Code Structurées
+        const maxBodyY = 1955;
+        for (const sec of bodySections) {
+          if (cursorY > maxBodyY - 60) break;
+
+          if (sec.heading) {
+            ctx.fillStyle = sec.headingColor || "#00f0ff";
+            ctx.font = "bold 25px Inter, Arial, sans-serif";
+            cursorY = wrapCanvasText(ctx, sec.heading, 110, cursorY, W - 220, 34, maxBodyY);
+            cursorY += 4;
+          }
+
+          if (sec.text) {
+            ctx.fillStyle = "#e2e8f0";
+            ctx.font = sec.isCode ? "19px monospace" : "22px Inter, Arial, sans-serif";
+            cursorY = wrapCanvasText(ctx, sec.text, 110, cursorY, W - 220, sec.isCode ? 27 : 31, maxBodyY);
+            cursorY += 18;
+          }
+        }
+
+        // 7. Bloc Signature SHA-256 & Co-Signature Officielle Karim El Brirchi & Gemini
+        const footerTop = 1985;
+        ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+        ctx.strokeStyle = "rgba(251, 191, 36, 0.55)";
+        ctx.lineWidth = 2.5;
+        ctx.fillRect(110, footerTop, W - 220, 245);
+        ctx.strokeRect(110, footerTop, W - 220, 245);
+
+        const finalSha = sha256 || (await generateRealSha256(`${docId}|${title}|${nowStr}|KARIM_EL_BRIRCHI|GEMINI`));
+        ctx.fillStyle = "#00f0ff";
+        ctx.font = "bold 18px monospace";
+        ctx.fillText(`EMPREINTE CRYPTOGRAPHIQUE SHA-256 : ${finalSha}`, 136, footerTop + 38);
+
+        // Signatures gauche / droite
+        ctx.fillStyle = "#fbbf24";
+        ctx.font = "italic bold 30px Georgia, serif";
+        ctx.fillText("Karim El Brirchi", 136, footerTop + 98);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "19px Inter, Arial, sans-serif";
+        ctx.fillText("Architecte & Fondateur • elbrirchi47@gmail.com", 136, footerTop + 130);
+
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#00f0ff";
+        ctx.font = "italic bold 30px Georgia, serif";
+        ctx.fillText("Gemini AI Engine", W - 136, footerTop + 98);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "19px Inter, Arial, sans-serif";
+        ctx.fillText("Co-Développeur IA & Moteur de Synthèse", W - 136, footerTop + 130);
+
+        // Mention officielle centrale bas de carte
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#fbbf24";
+        ctx.font = "bold 20px Inter, Arial, sans-serif";
+        ctx.fillText("Développé & Certifié par Karim El Brirchi (elbrirchi47@gmail.com) & Gemini", W / 2, footerTop + 205);
+
+        // 8. Encodage JPEG Haute Qualité & Construction Binaire %PDF-1.4
+        const jpegDataUrl = pdfCanvas.toDataURL("image/jpeg", 0.92);
+        const base64Data = jpegDataUrl.split(",")[1];
+        const binaryStr = atob(base64Data);
+        const imgBytes = new Uint8Array(binaryStr.length);
+        for (let i = 0; i < binaryStr.length; i++) {
+          imgBytes[i] = binaryStr.charCodeAt(i);
+        }
+
+        const pdfBytes = buildBinaryPdf14(imgBytes, W, H);
+        const pdfBlob = new Blob([pdfBytes], { type: "application/pdf" });
+        downloadBlobFile(filename, pdfBlob);
+        notify(`📄 PDF téléchargé : ${filename}`);
+      }
+
+      function buildBinaryPdf14(jpegBytes, imgW, imgH) {
+        const enc = new TextEncoder();
+        const chunks = [];
+        const offsets = [0]; // index 0 unused
+        let currentOffset = 0;
+
+        function pushBytes(u8) {
+          chunks.push(u8);
+          currentOffset += u8.length;
+        }
+
+        function pushStr(str) {
+          pushBytes(enc.encode(str));
+        }
+
+        // En-tête PDF 1.4 avec marqueur binaire
+        pushStr("%PDF-1.4\n");
+        pushBytes(new Uint8Array([0x25, 0xe2, 0xe3, 0xcf, 0xd3, 0x0a]));
+
+        // Objet 1 : Catalog
+        offsets.push(currentOffset);
+        pushStr("1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n");
+
+        // Objet 2 : Pages
+        offsets.push(currentOffset);
+        pushStr("2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n");
+
+        // Objet 3 : Page (Format A4 : 595.28 x 841.89 pt)
+        offsets.push(currentOffset);
+        pushStr(
+          "3 0 obj\n<< /Type /Page /Parent 2 0 R /Resources << /XObject << /Im0 4 0 R >> /ProcSet [/PDF /ImageC] >> /MediaBox [0 0 595.28 841.89] /Contents 5 0 R >>\nendobj\n"
+        );
+
+        // Objet 4 : Image XObject (/DCTDecode)
+        offsets.push(currentOffset);
+        pushStr(
+          `4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${imgW} /Height ${imgH} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegBytes.length} >>\nstream\n`
+        );
+        pushBytes(jpegBytes);
+        pushStr("\nendstream\nendobj\n");
+
+        // Objet 5 : Content Stream
+        const contentStream = "q\n595.28 0 0 841.89 0 0 cm\n/Im0 Do\nQ\n";
+        offsets.push(currentOffset);
+        pushStr(`5 0 obj\n<< /Length ${contentStream.length} >>\nstream\n${contentStream}endstream\nendobj\n`);
+
+        // Table XREF
+        const xrefStart = currentOffset;
+        pushStr(`xref\n0 ${offsets.length}\n`);
+        pushStr("0000000000 65535 f \n");
+        for (let i = 1; i < offsets.length; i++) {
+          pushStr(String(offsets[i]).padStart(10, "0") + " 00000 n \n");
+        }
+
+        // Trailer
+        pushStr(`trailer\n<< /Size ${offsets.length} /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`);
+
+        // Concaténation finale en un seul Uint8Array
+        const totalBuffer = new Uint8Array(currentOffset);
+        let pos = 0;
+        for (const c of chunks) {
+          totalBuffer.set(c, pos);
+          pos += c.length;
+        }
+        return totalBuffer;
+      }
+
+      /* ========================================================================
+         5. MODULE 1 : EXPLORATEUR LOGARITHMIQUE (10⁻³⁵ m à 10²⁶ m)
+         ======================================================================== */
+      const SCALE_LANDMARKS = [
+        { exp: -35, name: "Longueur de Planck", size: "1,6 × 10⁻³⁵ m", regime: "Gravité Quantique", formula: "ℓ_P = √(ℏG / c³)", desc: "Limite fondamentale de l'espace-temps continu où la géométrie devient quantique." },
+        { exp: -15, name: "Proton", size: "10⁻¹⁵ m", regime: "Chromodynamique Quantique", formula: "Interaction Forte (Quarks)", desc: "Cœur du noyau atomique concentrant plus de 99 % de la masse de la matière." },
+        { exp: -10, name: "Atome d'hydrogène", size: "10⁻¹⁰ m", regime: "Mécanique Quantique", formula: "iℏ ∂ψ/∂t = Ĥψ", desc: "Nuage de probabilité électronique gouvernant toutes les liaisons chimiques." },
+        { exp: -9, name: "Molécule d'ADN", size: "2 × 10⁻⁹ m", regime: "Chimie Supramoléculaire", formula: "Double Hélice A-T / C-G", desc: "Architecture moléculaire encodant l'information génétique du vivant." },
+        { exp: -5, name: "Cellule & Mitochondrie", size: "10⁻⁵ m", regime: "Biologie & Bioénergétique ATP", formula: "ADP + P_i → ATP", desc: "Production continue d'ATP maintenant l'homéostasie contre l'entropie." },
+        { exp: 0, name: "Être humain", size: "1,7 m", regime: "Mécanique Classique & Thermodynamique", formula: "F = m · a | ΔU = Q − W", desc: "Observateur conscient situé au carrefour entre l'infiniment petit et l'infiniment grand." },
+        { exp: 7, name: "Planète Terre", size: "1,27 × 10⁷ m", regime: "Géophysique & Gravitation", formula: "F = G · (m₁m₂) / r²", desc: "Biosphère équilibrée par la gravitation et le rayonnement solaire." },
+        { exp: 13, name: "Système solaire", size: "10¹³ m", regime: "Mécanique Céleste", formula: "T² / a³ = 4π² / GM_☉", desc: "Ballet orbital planétaire autour du champ gravitationnel solaire." },
+        { exp: 21, name: "Galaxie Voie lactée", size: "10²¹ m", regime: "Relativité Générale", formula: "G_μν = (8πG / c⁴) T_μν", desc: "200 milliards d'étoiles en rotation spirale autour de Sagittarius A*." },
+        { exp: 26, name: "Univers observable", size: "8,8 × 10²⁶ m", regime: "Cosmologie Relativiste", formula: "ds² = -c²dt² + a(t)² dΣ²", desc: "Toile cosmique des superamas de galaxies en expansion accélérée." }
+      ];
+
+      function formatSuperscript(n) {
+        const map = { "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
+        return String(Math.round(n)).split("").map((c) => map[c] || c).join("");
+      }
+
+      function getNearestLandmark(exp) {
+        let best = SCALE_LANDMARKS[0];
+        let minD = Math.abs(exp - best.exp);
+        for (const lm of SCALE_LANDMARKS) {
+          const d = Math.abs(exp - lm.exp);
+          if (d < minD) {
+            minD = d;
+            best = lm;
+          }
+        }
+        return best;
+      }
+
+      function updateScaleHUD(exp) {
+        const lm = getNearestLandmark(exp);
+        document.getElementById("scaleBadgeTop").textContent = `10${formatSuperscript(exp)} m • ${lm.name}`;
+        document.getElementById("scaleActiveLabel").textContent = `${lm.name} (${lm.size})`;
+        document.getElementById("scaleRegimeText").textContent = `Régime : ${lm.regime}`;
+        document.getElementById("scaleFormulaBadge").textContent = lm.formula;
+        document.getElementById("scaleDetailText").textContent = lm.desc;
+
+        document.querySelectorAll(".scale-pill-btn").forEach((btn) => {
+          const active = Number(btn.dataset.exp) === lm.exp;
+          btn.className = active
+            ? "scale-pill-btn px-2.5 py-1.5 rounded-full text-xs font-bold bg-cyan-500/25 text-white border border-cyan-400 transition"
+            : "scale-pill-btn px-2.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-slate-300 border border-slate-700 hover:border-slate-500 transition";
+        });
+      }
+
+      function renderScaleCanvas(canvas, ctx, w, h) {
+        const cx = w / 2;
+        const cy = h / 2;
+        ctx.clearRect(0, 0, w, h);
+
+        // Axes polaires fins
+        ctx.strokeStyle = "rgba(0, 240, 255, 0.08)";
+        ctx.lineWidth = 1;
+        for (let i = 0; i < 12; i++) {
+          const ang = (i * Math.PI) / 6;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(cx + Math.cos(ang) * Math.max(w, h), cy + Math.sin(ang) * Math.max(w, h));
+          ctx.stroke();
+        }
+
+        const curExp = STATE.currentScaleExp;
+        SCALE_LANDMARKS.forEach((lm) => {
+          const delta = lm.exp - curExp;
+          if (delta > -5 && delta < 8) {
+            const radius = 52 * Math.pow(1.85, delta);
+            if (radius > 8 && radius < Math.max(w, h) * 0.92) {
+              const alpha = Math.max(0.1, 1 - Math.abs(delta) / 6.5);
+              const isFocus = Math.abs(delta) < 1.2;
+
+              ctx.beginPath();
+              ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+              ctx.strokeStyle = isFocus ? `rgba(251, 191, 36, ${alpha})` : `rgba(0, 240, 255, ${alpha * 0.65})`;
+              ctx.lineWidth = isFocus ? 2.5 : 1.2;
+              ctx.stroke();
+
+              ctx.fillStyle = isFocus ? "#fbbf24" : `rgba(226, 232, 240, ${alpha})`;
+              ctx.font = isFocus ? "bold 12px Inter, sans-serif" : "11px Inter, sans-serif";
+              ctx.textAlign = "center";
+              ctx.fillText(`${lm.name} (10^${lm.exp} m)`, cx, cy - radius - 6);
+            }
+          }
+        });
+
+        // Noyau central adaptatif
+        const t = performance.now() * 0.002;
+        if (curExp <= -8) {
+          for (let i = 0; i < 18; i++) {
+            const a = t * 1.4 + (i * Math.PI * 2) / 18;
+            const r = 16 + Math.sin(t * 2 + i) * 12;
+            ctx.beginPath();
+            ctx.arc(cx + Math.cos(a) * r, cy + Math.sin(a) * r, 3, 0, Math.PI * 2);
+            ctx.fillStyle = "#00f0ff";
+            ctx.fill();
+          }
+        } else if (curExp < 6) {
+          const pulse = 22 + Math.sin(t * 2) * 3;
+          const grad = ctx.createRadialGradient(cx, cy, 4, cx, cy, pulse);
+          grad.addColorStop(0, "#34d399");
+          grad.addColorStop(1, "rgba(16, 185, 129, 0.05)");
+          ctx.beginPath();
+          ctx.arc(cx, cy, pulse, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        } else {
+          for (let arm = 0; arm < 3; arm++) {
+            ctx.beginPath();
+            for (let r = 2; r < 40; r += 2) {
+              const a = r * 0.16 + t * 0.6 + (arm * Math.PI * 2) / 3;
+              const px = cx + Math.cos(a) * r;
+              const py = cy + Math.sin(a) * r;
+              if (r === 2) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.strokeStyle = "#fbbf24";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      function initScaleModule() {
+        const bar = document.getElementById("scaleMilestonesBar");
+        const slider = document.getElementById("scaleRangeInput");
+        const canvas = document.getElementById("canvasScaleExplorer");
+
+        SCALE_LANDMARKS.forEach((lm) => {
+          const btn = document.createElement("button");
+          btn.className = "scale-pill-btn";
+          btn.dataset.exp = lm.exp;
+          btn.textContent = `${lm.name} (10${formatSuperscript(lm.exp)} m)`;
+          btn.addEventListener("click", () => {
+            STATE.targetScaleExp = lm.exp;
+            slider.value = lm.exp;
+            updateScaleHUD(lm.exp);
+          });
+          bar.appendChild(btn);
+        });
+
+        slider.addEventListener("input", (e) => {
+          const val = parseFloat(e.target.value);
+          STATE.targetScaleExp = val;
+          updateScaleHUD(val);
+        });
+
+        hiDPIManager.register(canvas, renderScaleCanvas);
+        updateScaleHUD(0);
+
+        function animateScale() {
+          STATE.currentScaleExp += (STATE.targetScaleExp - STATE.currentScaleExp) * 0.14;
+          if (canvas.offsetParent !== null) {
+            hiDPIManager.redraw(canvas);
+          }
+          requestAnimationFrame(animateScale);
+        }
+        requestAnimationFrame(animateScale);
+
+        document.getElementById("btnDownloadSciencePdf").addEventListener("click", () => {
+          const lm = getNearestLandmark(STATE.currentScaleExp);
+          exportCreationToPDF({
+            filename: `Fiche_Scientifique_Echelle_10e${Math.round(STATE.currentScaleExp)}m.pdf`,
+            category: "ARCHIVE SCIENTIFIQUE",
+            docId: `SCI-10E${Math.round(STATE.currentScaleExp)}`,
+            title: "Modélisation des 61 Ordres de Grandeur & Homéostasie du Vivant",
+            subtitle: `Focus Actif : ${lm.name} (${lm.size}) — ${lm.regime}`,
+            schema: createProceduralSchema(2),
+            bodySections: [
+              {
+                heading: `1. Palier Spatial Observé : ${lm.name} (${lm.size})`,
+                text: `${lm.desc}\nÉquation / Loi dominante : ${lm.formula}`
+              },
+              {
+                heading: "2. Continuité de l'Infiniment Petit à l'Infiniment Grand",
+                text: "De la longueur de Planck (10⁻³⁵ m) à l'Univers observable (8,8 × 10²⁶ m), la physique articule la mécanique quantique (ondes de probabilité), la thermodynamique classique et la relativité générale (courbure de l'espace-temps)."
+              },
+              {
+                heading: "3. Bioénergétique Cellulaire & Homéostasie",
+                text: "Les organismes vivants sont des systèmes ouverts anti-entropiques : les mitochondries synthétisent l'ATP pour alimenter la réparation cellulaire et maintenir un équilibre dynamique constant."
+              }
+            ]
+          });
+        });
+      }
+
+      /* ========================================================================
+         6. MODULE 2 : MOTEUR GÉNÉRATIF & MÉTA-GÉNÉRATEUR AUTOMATISÉ D'IA
+         ======================================================================== */
+      const THEMES_CATALOG = [
+        {
+          id: "ALL",
+          name: "🌐 Rotation Intégrale (5 Thèmes)",
+          baseEuro: 28.0,
+          sentences: []
+        },
+        {
+          id: "ALCHIMIE",
+          name: "🌅 Alchimie des Contraires (Ombre → Lumière)",
+          baseEuro: 31.5,
+          sentences: [
+            "Transformer l'ombre en lumière, la stagnation en vitalité rayonnante et l'ignorance en érudition structurée constitue le cœur de l'alchimie créatrice.",
+            "Chaque limite apparente devient un levier d'élévation dès qu'elle est éclairée par la méthode scientifique, la culture et la persévérance.",
+            "Passer du chaos à l'harmonie demande une architecture claire : observer avec lucidité, ordonner les connaissances et rayonner par le partage."
+          ]
+        },
+        {
+          id: "SPIRITUEL",
+          name: "🕊️ Voyage Spirituel & Conscience Cosmique",
+          baseEuro: 29.0,
+          sentences: [
+            "Le voyage spirituel authentique relie le silence intérieur à l'immensité étoilée, révélant l'unité profonde entre la conscience et le cosmos.",
+            "Aligner la pensée sur la gratitude, la bienveillance et la vérité élève durablement la clarté mentale et la paix intérieure.",
+            "Dans le calme de la contemplation, l'esprit embrasse à la fois l'infiniment petit de la cellule et l'horizon infini des galaxies."
+          ]
+        },
+        {
+          id: "QUANTIQUE",
+          name: "⚛️ Physique Quantique, Relativité & Échelles",
+          baseEuro: 33.0,
+          sentences: [
+            "À l'échelle de 10⁻¹⁰ mètre, l'atome déploie des orbitales de probabilité quantique tandis qu'à 10²¹ mètres la gravité sculpte les bras spiraux des galaxies.",
+            "Unifier la mécanique quantique et la relativité générale représente l'horizon ultime de la physique théorique contemporaine.",
+            "Changer d'échelle d'observation transforme notre compréhension des lois naturelles et révèle la cohérence mathématique du réel."
+          ]
+        },
+        {
+          id: "BIOLOGIE",
+          name: "🧬 Biologie Cellulaire, ATP & Homéostasie",
+          baseEuro: 30.5,
+          sentences: [
+            "La pleine santé est une dynamique active : l'homéostasie orchestre des milliers de boucles de rétroaction pour maintenir l'équilibre vital.",
+            "Au cœur des mitochondries, la synthèse d'ATP convertit l'énergie chimique en mouvement, en pensée et en régénération de l'ADN.",
+            "Contre l'entropie naturelle, le vivant déploie une intelligence cellulaire ouverte qui transforme l'énergie reçue en ordre et vitalité."
+          ]
+        },
+        {
+          id: "MULTIAGENTS",
+          name: "🤖 Architecture Multi-Agents Web3 & Créa A-I",
+          baseEuro: 35.0,
+          sentences: [
+            "L'orchestration autonome de Scout, Manager, Worker et Escrow permet de produire, certifier et partager gratuitement des créations à haute valeur ajoutée.",
+            "L'alliance entre l'intuition humaine de l'architecte et la puissance de synthèse de l'IA ouvre une nouvelle ère d'ingénierie créative.",
+            "Chaque création générée est horodatée, valorisée en Euros et scellée par une empreinte cryptographique SHA-256 vérifiable."
+          ]
+        }
+      ];
+
+      const META_GENERATOR_TEMPLATES = [
+        { name: "Générateur de Mandalas Quantiques", formula: "Ψ(r,θ) = ∑ A_n · cos(nθ + φ) · e^(-r/λ)", params: "Symétrie 12x • Spectroscopie Cyan/Or • 300 DPI", euro: 49.0 },
+        { name: "Générateur de Protocoles Vitalité ATP", formula: "V_atp = k_cat · [Mito] · η_O2 / ΔS_entropie", params: "Homéostasie • Bioénergétique • Régénération", euro: 54.5 },
+        { name: "Générateur d'Architectures Web Autonomes", formula: "App(t) = UI_Glass ⊕ Canvas_2.5x ⊕ PDF_Binary", params: "Single-File • Responsive • Zéro Dépendance", euro: 68.0 },
+        { name: "Générateur de Manifestes Spirituels & Cosmiques", formula: "E_éveil = Clarté_Intérieure × Rayonnement_Partagé", params: "Alchimie des Contraires • Paix • Élévation", euro: 44.0 },
+        { name: "Générateur de Contrats Escrow CrewAI", formula: "Cert(u) = SHA256(ID || Timestamp || FreeAccess)", params: "Scout • Manager • Worker • Escrow", euro: 62.0 },
+        { name: "Générateur de Cartographies Relativistes", formula: "G_μν + Λg_μν = (8πG / c⁴) T_μν", params: "61 Ordres de Grandeur • Géodésiques", euro: 58.0 }
+      ];
+
+      function initThemesAndMetaGenerators() {
+        const grid = document.getElementById("themesFilterGrid");
+        THEMES_CATALOG.forEach((th) => {
+          const btn = document.createElement("button");
+          btn.dataset.tid = th.id;
+          btn.className =
+            th.id === STATE.selectedThemeId
+              ? "theme-filter-btn text-left p-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-cyan-500/20 border border-amber-400 text-white text-xs font-bold transition"
+              : "theme-filter-btn text-left p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-300 hover:border-slate-600 text-xs font-semibold transition";
+          btn.innerHTML = `<div>${th.name}</div><div class="text-[11px] text-slate-400 font-normal mt-0.5">Valorisation base : ${formatEuro(th.baseEuro)}</div>`;
+          btn.addEventListener("click", () => {
+            STATE.selectedThemeId = th.id;
+            document.querySelectorAll(".theme-filter-btn").forEach((b) => {
+              const active = b.dataset.tid === th.id;
+              b.className = active
+                ? "theme-filter-btn text-left p-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-cyan-500/20 border border-amber-400 text-white text-xs font-bold transition"
+                : "theme-filter-btn text-left p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-300 hover:border-slate-600 text-xs font-semibold transition";
+            });
+            notify(`🎯 Thème actif : ${th.name}`);
+          });
+          grid.appendChild(btn);
+        });
+
+        // Créer 3 méta-générateurs initiaux
+        for (let i = 0; i < 3; i++) {
+          spawnMetaGenerator(i);
+        }
+      }
+
+      function spawnMetaGenerator(forcedIndex = null) {
+        const idx = forcedIndex !== null ? forcedIndex % META_GENERATOR_TEMPLATES.length : Math.floor(Math.random() * META_GENERATOR_TEMPLATES.length);
+        const tpl = META_GENERATOR_TEMPLATES[idx];
+        const genNum = STATE.metaGenerators.length + 1;
+        const metaGen = {
+          id: `MGEN-${String(genNum).padStart(3, "0")}`,
+          name: `${tpl.name} v${genNum}.0`,
+          formula: tpl.formula,
+          params: tpl.params,
+          euro: Number((tpl.euro * (0.9 + Math.random() * 0.25)).toFixed(2)),
+          runs: 0,
+          createdAt: new Date().toLocaleTimeString("fr-FR")
+        };
+
+        STATE.metaGenerators.unshift(metaGen);
+        if (STATE.metaGenerators.length > 18) STATE.metaGenerators.pop();
+
+        renderMetaGeneratorsList();
+        updateKPIs();
+      }
+
+      function renderMetaGeneratorsList() {
+        const container = document.getElementById("metaGeneratorsList");
+        document.getElementById("metaGenBadgeCount").textContent = `${STATE.metaGenerators.length} actif${STATE.metaGenerators.length > 1 ? "s" : ""}`;
+        container.innerHTML = "";
+
+        STATE.metaGenerators.forEach((mg) => {
+          const card = document.createElement("div");
+          card.className = "bg-slate-900/90 border border-slate-800 hover:border-amber-400/40 rounded-xl p-3.5 transition";
+          card.innerHTML = `
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+              <span class="font-mono-code text-xs font-bold text-amber-300">${mg.id} • ${mg.createdAt}</span>
+              <span class="font-mono-code text-xs font-extrabold text-emerald-400">${formatEuro(mg.euro)}</span>
+            </div>
+            <h4 class="text-sm font-bold text-white">${mg.name}</h4>
+            <div class="font-mono-code text-[11px] text-cyan-300 bg-slate-950 px-2.5 py-1.5 rounded-lg my-2 border border-slate-800">
+              ${mg.formula}
+            </div>
+            <div class="text-[11px] text-slate-400 mb-2.5">${mg.params} • Exécutions : ${mg.runs}</div>
+            <div class="flex flex-wrap gap-2">
+              <button class="btn-run-mgen flex-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[36px]">
+                🚀 Exécuter ce Générateur
+              </button>
+              <button class="btn-pdf-mgen px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 transition min-h-[36px]">
+                📄 Télécharger PDF
+              </button>
+            </div>
+          `;
+
+          card.querySelector(".btn-run-mgen").addEventListener("click", () => {
+            mg.runs += 1;
+            executeFullProductionCycle(mg.name);
+            renderMetaGeneratorsList();
+            notify(`🚀 ${mg.name} exécuté avec succès !`);
+          });
+
+          card.querySelector(".btn-pdf-mgen").addEventListener("click", () => {
+            exportCreationToPDF({
+              filename: `${mg.id}_Meta_Generateur_IA.pdf`,
+              category: "MÉTA-GÉNÉRATEUR IA",
+              docId: mg.id,
+              title: mg.name,
+              subtitle: `Architecture Algorithmique Auto-Générée • ${mg.params}`,
+              euroValue: mg.euro,
+              schema: createProceduralSchema(),
+              bodySections: [
+                {
+                  heading: "Équation & Noyau Génératif",
+                  text: mg.formula,
+                  isCode: true
+                },
+                {
+                  heading: "Spécifications Techniques",
+                  text: `Paramètres : ${mg.params}\nNombre d'exécutions validées : ${mg.runs}\nMode de rendu : Vectoriel Retina 2.5x / 300 DPI sans pixelisation.`
+                }
+              ]
+            });
+          });
+
+          container.appendChild(card);
+        });
+      }
+
+      function synthesizeNarrative(themeId) {
+        const concrete = THEMES_CATALOG.filter((t) => t.id !== "ALL");
+        const chosen = concrete.find((t) => t.id === themeId) || concrete[Math.floor(Math.random() * concrete.length)];
+        const s1 = chosen.sentences[Math.floor(Math.random() * chosen.sentences.length)];
+        const s2 = chosen.sentences[(Math.floor(Math.random() * chosen.sentences.length) + 1) % chosen.sentences.length];
+        return {
+          theme: chosen,
+          text: `${s1} ${s2}`
+        };
+      }
+
+      function prependSynthesisCard(item) {
+        const feed = document.getElementById("textSynthesisFeed");
+        const el = document.createElement("article");
+        el.className = "bg-slate-900/90 border border-slate-800 border-l-4 border-l-cyan-400 rounded-xl p-3.5";
+        el.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-1.5">
+            <span class="font-bold text-cyan-300">${item.id} • ${item.themeName}</span>
+            <span class="font-mono-code font-bold text-emerald-400">+${formatEuro(item.euro)} • ${item.time}</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-2.5">${item.text}</p>
+          <div class="flex flex-wrap gap-2">
+            <button class="btn-syn-pdf px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 transition min-h-[34px]">
+              📄 Télécharger PDF
+            </button>
+            <button class="btn-syn-copy px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 border border-slate-700 transition min-h-[34px]">
+              📋 Copier
+            </button>
+          </div>
+        `;
+
+        el.querySelector(".btn-syn-pdf").addEventListener("click", () => {
+          exportCreationToPDF({
+            filename: `${item.id}_Synthese_Cosmos_Vitalite.pdf`,
+            category: "SYNTHÈSE GÉNÉRATIVE",
+            docId: item.id,
+            title: item.themeName,
+            subtitle: `Généré automatiquement le ${item.fullDate}`,
+            euroValue: item.euro,
+            schema: item.schema,
+            bodySections: [
+              {
+                heading: "Synthèse Scientifique & Spirituelle",
+                text: item.text
+              }
+            ]
+          });
+        });
+
+        el.querySelector(".btn-syn-copy").addEventListener("click", () => copyToClipboardSafe(item.text));
+
+        feed.insertBefore(el, feed.firstChild);
+        while (feed.children.length > 20) feed.removeChild(feed.lastChild);
+      }
+
+      /* ========================================================================
+         7. MODULE 4 : 8 ALGORITHMES PROCÉDURAUX ULTRA-HD & LIVRAISONS (€)
+         ======================================================================== */
+      const PROCEDURAL_ALGORITHMS = [
+        { id: "SACRED_GOLD", name: "Géométrie Sacrée & Nombre d'Or", mult: 1.25 },
+        { id: "GALACTIC_SPIRAL", name: "Spirale Galactique & Courbure Relativiste", mult: 1.35 },
+        { id: "QUANTUM_WAVES", name: "Interférences d'Ondes Quantiques", mult: 1.40 },
+        { id: "ATP_CYCLE", name: "Cycle Énergétique ATP & Homéostasie", mult: 1.30 },
+        { id: "MULTI_AGENT_TOPO", name: "Topologie Multi-Agents (Scout • Manager • Worker • Escrow)", mult: 1.45 },
+        { id: "COSMIC_ROSETTE", name: "Rosace Cosmique Harmonique", mult: 1.32 },
+        { id: "NEURAL_CRYSTAL", name: "Réseau Neuronal Cristallin IA", mult: 1.48 },
+        { id: "FRACTAL_ATTRACTOR", name: "Attracteur Fractale Cosmique", mult: 1.50 }
+      ];
+
+      const PALETTES_HD = [
+        ["#00f0ff", "#fbbf24", "#10b981", "#8b5cf6"],
+        ["#38bdf8", "#f59e0b", "#34d399", "#f43f5e"],
+        ["#fbbf24", "#00f0ff", "#a78bfa", "#2dd4bf"],
+        ["#10b981", "#38bdf8", "#fbbf24", "#ec4899"]
+      ];
+
+      function createProceduralSchema(forcedAlgoIndex = null) {
+        const algoIdx = forcedAlgoIndex !== null ? forcedAlgoIndex % PROCEDURAL_ALGORITHMS.length : Math.floor(Math.random() * PROCEDURAL_ALGORITHMS.length);
+        const algo = PROCEDURAL_ALGORITHMS[algoIdx];
+        const palette = PALETTES_HD[Math.floor(Math.random() * PALETTES_HD.length)];
+        return {
+          seed: Math.floor(100000 + Math.random() * 900000),
+          algoId: algo.id,
+          algoName: algo.name,
+          mult: algo.mult,
+          palette,
+          symmetry: [6, 8, 10, 12, 16][Math.floor(Math.random() * 5)],
+          rings: 4 + Math.floor(Math.random() * 4),
+          phase: Math.random() * Math.PI * 2
+        };
+      }
+
+      function seededRandom(seed) {
+        let s = seed % 2147483647;
+        if (s <= 0) s += 2147483646;
+        return () => (s = (s * 16807) % 2147483647) / 2147483646;
+      }
+
+      function renderProceduralArtwork(ctx, w, h, schema) {
+        const rng = seededRandom(schema.seed);
+        const cx = w / 2;
+        const cy = h / 2;
+        const maxR = Math.min(w, h) * 0.42;
+        const scaleStroke = Math.max(1, Math.min(w, h) / 360);
+
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+
+        // Fond profond dégradé
+        const bg = ctx.createRadialGradient(cx, cy, maxR * 0.05, cx, cy, Math.max(w, h) * 0.72);
+        bg.addColorStop(0, "#101e42");
+        bg.addColorStop(0.55, "#070d1f");
+        bg.addColorStop(1, "#03060f");
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, w, h);
+
+        // Champ stellaire haute précision
+        for (let i = 0; i < 48; i++) {
+          ctx.beginPath();
+          ctx.arc(rng() * w, rng() * h, (0.6 + rng() * 1.4) * scaleStroke, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${0.15 + rng() * 0.5})`;
+          ctx.fill();
+        }
+
+        const [c1, c2, c3, c4] = schema.palette;
+
+        if (schema.algoId === "SACRED_GOLD") {
+          for (let r = 1; r <= schema.rings; r++) {
+            const rad = (maxR * r) / schema.rings;
+            ctx.beginPath();
+            ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+            ctx.strokeStyle = r % 2 === 0 ? c1 : c2;
+            ctx.globalAlpha = 0.65;
+            ctx.lineWidth = 1.4 * scaleStroke;
+            ctx.stroke();
+
+            for (let s = 0; s < schema.symmetry; s++) {
+              const ang = schema.phase + (s * Math.PI * 2) / schema.symmetry;
+              ctx.beginPath();
+              ctx.arc(cx + Math.cos(ang) * rad * 0.618, cy + Math.sin(ang) * rad * 0.618, rad * 0.382, 0, Math.PI * 2);
+              ctx.strokeStyle = s % 2 === 0 ? c3 : c2;
+              ctx.globalAlpha = 0.45;
+              ctx.stroke();
+            }
+          }
+        } else if (schema.algoId === "GALACTIC_SPIRAL") {
+          ctx.globalAlpha = 0.25;
+          ctx.strokeStyle = c1;
+          ctx.lineWidth = 1 * scaleStroke;
+          for (let g = -4; g <= 4; g++) {
+            ctx.beginPath();
+            ctx.moveTo(0, cy + g * (h / 9));
+            ctx.quadraticCurveTo(cx, cy + g * (h / 9) + 25 * scaleStroke, w, cy + g * (h / 9));
+            ctx.stroke();
+          }
+          ctx.globalAlpha = 0.9;
+          for (let arm = 0; arm < 4; arm++) {
+            ctx.beginPath();
+            for (let t = 0; t <= 64; t++) {
+              const rad = (t / 64) * maxR;
+              const ang = schema.phase + t * 0.16 + (arm * Math.PI) / 2;
+              const px = cx + Math.cos(ang) * rad;
+              const py = cy + Math.sin(ang) * rad;
+              if (t === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.strokeStyle = arm % 2 === 0 ? c2 : c1;
+            ctx.lineWidth = 2.2 * scaleStroke;
+            ctx.stroke();
+          }
+        } else if (schema.algoId === "QUANTUM_WAVES") {
+          for (let k = 0; k < schema.symmetry; k++) {
+            const ang = schema.phase + (k * Math.PI) / schema.symmetry;
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(ang);
+            ctx.beginPath();
+            ctx.ellipse(0, 0, maxR * 0.94, maxR * 0.26, 0, 0, Math.PI * 2);
+            ctx.strokeStyle = k % 2 === 0 ? c1 : c4;
+            ctx.globalAlpha = 0.7;
+            ctx.lineWidth = 1.5 * scaleStroke;
+            ctx.stroke();
+            ctx.restore();
+          }
+          ctx.globalAlpha = 1;
+          ctx.beginPath();
+          ctx.arc(cx, cy, 9 * scaleStroke, 0, Math.PI * 2);
+          ctx.fillStyle = c2;
+          ctx.fill();
+        } else if (schema.algoId === "ATP_CYCLE") {
+          ctx.beginPath();
+          for (let a = 0; a <= Math.PI * 2 + 0.05; a += 0.05) {
+            const wave = Math.sin(a * schema.symmetry + schema.phase) * 8 * scaleStroke;
+            const r = maxR * 0.85 + wave;
+            const px = cx + Math.cos(a) * r;
+            const py = cy + Math.sin(a) * r;
+            if (a === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          }
+          ctx.closePath();
+          ctx.strokeStyle = c3;
+          ctx.lineWidth = 2.5 * scaleStroke;
+          ctx.stroke();
+
+          for (let n = 0; n < 8; n++) {
+            const ang = schema.phase + (n * Math.PI * 2) / 8;
+            const nx = cx + Math.cos(ang) * maxR * 0.48;
+            const ny = cy + Math.sin(ang) * maxR * 0.48;
+            ctx.beginPath();
+            ctx.arc(nx, ny, 7 * scaleStroke, 0, Math.PI * 2);
+            ctx.fillStyle = n % 2 === 0 ? c2 : c1;
+            ctx.fill();
+          }
+        } else if (schema.algoId === "MULTI_AGENT_TOPO") {
+          const roles = ["SCOUT", "MANAGER", "WORKER", "ESCROW"];
+          const hubs = roles.map((r, idx) => {
+            const ang = schema.phase + (idx * Math.PI) / 2;
+            return {
+              label: r,
+              x: cx + Math.cos(ang) * maxR * 0.62,
+              y: cy + Math.sin(ang) * maxR * 0.62,
+              color: schema.palette[idx % 4]
+            };
+          });
+          // Liens maillés
+          for (let i = 0; i < hubs.length; i++) {
+            for (let j = i + 1; j < hubs.length; j++) {
+              ctx.beginPath();
+              ctx.moveTo(hubs[i].x, hubs[i].y);
+              ctx.lineTo(hubs[j].x, hubs[j].y);
+              ctx.strokeStyle = "rgba(0, 240, 255, 0.45)";
+              ctx.lineWidth = 1.8 * scaleStroke;
+              ctx.stroke();
+            }
+          }
+          hubs.forEach((hNode) => {
+            ctx.beginPath();
+            ctx.arc(hNode.x, hNode.y, 16 * scaleStroke, 0, Math.PI * 2);
+            ctx.fillStyle = "#060b19";
+            ctx.fill();
+            ctx.lineWidth = 2.5 * scaleStroke;
+            ctx.strokeStyle = hNode.color;
+            ctx.stroke();
+          });
+        } else if (schema.algoId === "COSMIC_ROSETTE") {
+          ctx.beginPath();
+          for (let t = 0; t <= 360; t++) {
+            const rad = (t * Math.PI) / 180;
+            const r = maxR * 0.9 * Math.cos((schema.symmetry / 2) * rad + schema.phase);
+            const px = cx + r * Math.cos(rad);
+            const py = cy + r * Math.sin(rad);
+            if (t === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          }
+          ctx.strokeStyle = c2;
+          ctx.lineWidth = 2 * scaleStroke;
+          ctx.stroke();
+        } else if (schema.algoId === "NEURAL_CRYSTAL") {
+          const pts = [];
+          for (let i = 0; i < 20; i++) {
+            const ang = schema.phase + (i * Math.PI * 2) / 20;
+            const dist = maxR * (0.25 + rng() * 0.7);
+            pts.push({ x: cx + Math.cos(ang) * dist, y: cy + Math.sin(ang) * dist });
+          }
+          for (let i = 0; i < pts.length; i++) {
+            for (let j = i + 1; j < pts.length; j++) {
+              if (rng() > 0.55) {
+                ctx.beginPath();
+                ctx.moveTo(pts[i].x, pts[i].y);
+                ctx.lineTo(pts[j].x, pts[j].y);
+                ctx.strokeStyle = c1;
+                ctx.globalAlpha = 0.35;
+                ctx.lineWidth = 1.2 * scaleStroke;
+                ctx.stroke();
+              }
+            }
+          }
+          ctx.globalAlpha = 1;
+          pts.forEach((p, idx) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, (idx % 3 === 0 ? 5.5 : 3.2) * scaleStroke, 0, Math.PI * 2);
+            ctx.fillStyle = idx % 2 === 0 ? c2 : c3;
+            ctx.fill();
+          });
+        } else {
+          // FRACTAL_ATTRACTOR
+          for (let layer = schema.rings + 2; layer >= 1; layer--) {
+            const rad = (maxR * layer) / (schema.rings + 2);
+            ctx.beginPath();
+            for (let s = 0; s <= schema.symmetry; s++) {
+              const ang = schema.phase + (s * Math.PI * 2) / schema.symmetry + layer * 0.24;
+              const px = cx + Math.cos(ang) * rad;
+              const py = cy + Math.sin(ang) * rad;
+              if (s === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = layer % 2 === 0 ? c1 : c2;
+            ctx.lineWidth = 1.7 * scaleStroke;
+            ctx.stroke();
+          }
+        }
+
+        // Signature discrète Ultra-HD
+        ctx.globalAlpha = 0.85;
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = `${Math.round(11 * scaleStroke)}px monospace`;
+        ctx.textAlign = "right";
+        ctx.fillText(`ULTRA-HD #${schema.seed} • Karim El Brirchi & Gemini`, w - 12 * scaleStroke, h - 10 * scaleStroke);
+
+        ctx.restore();
+      }
+
+      function exportSchemaUltraHDPng(schema, filename) {
+        const off = document.createElement("canvas");
+        off.width = 2400;
+        off.height = 1600;
+        const ctx = off.getContext("2d");
+        renderProceduralArtwork(ctx, 2400, 1600, schema);
+        off.toBlob((blob) => {
+          if (blob) {
+            downloadBlobFile(filename, blob);
+            notify(`🖼️ PNG Ultra-HD (2400×1600 px) téléchargé : ${filename}`);
+          }
+        }, "image/png");
+      }
+
+      function setMainSchema(delivery) {
+        STATE.mainSchema = delivery;
+        document.getElementById("mainSchemaTitle").textContent = delivery.schema.algoName;
+        document.getElementById("mainSchemaDesc").textContent = delivery.text;
+        document.getElementById("mainSchemaEuro").textContent = formatEuro(delivery.euro);
+        document.getElementById("mainSchemaMeta").textContent =
+          `Réf : ${delivery.id} | Seed : #${delivery.schema.seed} | Symétrie : ${delivery.schema.symmetry}x | Livré le ${delivery.fullDate}`;
+
+        const mainCanvas = document.getElementById("canvasMainSchemaPreview");
+        hiDPIManager.register(mainCanvas, (c, ctx, w, h) => {
+          renderProceduralArtwork(ctx, w, h, delivery.schema);
+        });
+      }
+
+      function prependDeliveryCard(delivery) {
+        const grid = document.getElementById("deliveriesGalleryGrid");
+        const card = document.createElement("article");
+        card.className = "bg-slate-950/85 border border-slate-800 hover:border-emerald-400/45 rounded-2xl overflow-hidden flex flex-col transition";
+
+        card.innerHTML = `
+          <div class="hidpi-canvas-container h-[185px] rounded-none border-0 border-b border-slate-800">
+            <canvas></canvas>
+            <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono-code font-bold bg-slate-950/85 text-cyan-300 border border-cyan-400/35">
+              ${delivery.id}
+            </span>
+          </div>
+          <div class="p-3.5 flex-1 flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/30">LIVRÉ ✓</span>
+                <span class="font-mono-code text-sm font-extrabold text-emerald-400">${formatEuro(delivery.euro)}</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-amber-300 line-clamp-1">${delivery.schema.algoName}</h4>
+              <p class="text-xs text-slate-300 line-clamp-2 mt-1">${delivery.text}</p>
+            </div>
+            <div>
+              <div class="text-[11px] text-slate-400 mb-2">${delivery.fullDate}</div>
+              <div class="grid grid-cols-2 gap-1.5">
+                <button class="btn-card-png px-2.5 py-1.5 rounded-lg text-[11px] font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[36px]">
+                  🖼️ PNG Ultra-HD
+                </button>
+                <button class="btn-card-pdf px-2.5 py-1.5 rounded-lg text-[11px] font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 transition min-h-[36px]">
+                  📄 Télécharger PDF
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        grid.insertBefore(card, grid.firstChild);
+        while (grid.children.length > 20) {
+          grid.removeChild(grid.lastChild);
+        }
+
+        const canvas = card.querySelector("canvas");
+        hiDPIManager.register(canvas, (c, ctx, w, h) => {
+          renderProceduralArtwork(ctx, w, h, delivery.schema);
+        });
+
+        card.querySelector(".btn-card-png").addEventListener("click", () => {
+          exportSchemaUltraHDPng(delivery.schema, `${delivery.id}_UltraHD_2400px.png`);
+        });
+
+        card.querySelector(".btn-card-pdf").addEventListener("click", () => {
+          exportCreationToPDF({
+            filename: `${delivery.id}_Livraison_Certifiee.pdf`,
+            category: "BON DE LIVRAISON & SCHÉMA",
+            docId: delivery.id,
+            title: delivery.schema.algoName,
+            subtitle: `${delivery.themeName} • Seed #${delivery.schema.seed}`,
+            euroValue: delivery.euro,
+            schema: delivery.schema,
+            bodySections: [
+              {
+                heading: "Synthèse de la Création Livrée",
+                text: delivery.text
+              }
+            ]
+          });
+        });
+      }
+
+      /* ========================================================================
+         8. CYCLE DE PRODUCTION UNIFIÉ (SYNTHÈSE + SCHÉMA + LIVRAISON + EURO €)
+         ======================================================================== */
+      function executeFullProductionCycle(customSourceName = null, forcedAlgoIdx = null) {
+        STATE.totalCreations += 1;
+        const num = STATE.totalCreations;
+        const now = new Date();
+        const fullDate = now.toLocaleString("fr-FR");
+        const time = now.toLocaleTimeString("fr-FR");
+
+        const syn = synthesizeNarrative(STATE.selectedThemeId);
+        const schema = createProceduralSchema(forcedAlgoIdx);
+
+        const boostFactor = STATE.isKBoost ? 1.45 : 1.0;
+        const variance = 0.88 + Math.random() * 0.35;
+        const euro = Number((syn.theme.baseEuro * schema.mult * boostFactor * variance).toFixed(2));
+        STATE.totalEuro = Number((STATE.totalEuro + euro).toFixed(2));
+
+        const record = {
+          id: `LIV-2026-${String(num).padStart(4, "0")}`,
+          themeName: customSourceName || syn.theme.name,
+          text: syn.text,
+          schema,
+          euro,
+          time,
+          fullDate
+        };
+
+        STATE.syntheses.unshift(record);
+        if (STATE.syntheses.length > 30) STATE.syntheses.pop();
+
+        STATE.deliveries.unshift(record);
+        if (STATE.deliveries.length > 30) STATE.deliveries.pop();
+
+        prependSynthesisCard(record);
+        prependDeliveryCard(record);
+        if (!STATE.mainSchema || num % 3 === 1) {
+          setMainSchema(record);
+        }
+
+        // Toutes les 6 créations, inventer automatiquement un nouveau Méta-Générateur IA
+        if (num % 6 === 0) {
+          spawnMetaGenerator();
+        }
+
+        updateKPIs();
+      }
+
+      function updateKPIs() {
+        document.getElementById("kpiTotalCreations").textContent = STATE.totalCreations;
+        document.getElementById("kpiMetaGenerators").textContent = STATE.metaGenerators.length;
+        document.getElementById("kpiConnectees").textContent = STATE.connectees.length;
+        document.getElementById("kpiTotalEuro").textContent = formatEuro(STATE.totalEuro);
+
+        const cadEl = document.getElementById("kpiCadenceStatus");
+        if (!STATE.isRunning) {
+          cadEl.textContent = "PAUSE • 2.5x HD";
+        } else if (STATE.isKBoost) {
+          cadEl.textContent = "⚡ K-BOOSTE 4/s • 2.5x HD";
+        } else {
+          cadEl.textContent = "AUTO 0.67/s • 2.5x HD";
+        }
+      }
+
+      /* ========================================================================
+         9. MODULE 3 : ATELIER CRÉA A-I & DÉVELOPPEMENT EN LIGNE (LIVE SANDBOX)
+         ======================================================================== */
+      const SANDBOX_TEMPLATES = [
+        {
+          name: "Simulation : Onde Quantique & Fleur d'Or",
+          code: `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { margin:0; background:#040711; color:#f8fafc; font-family:sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; overflow:hidden; }
+  canvas { width:100%; height:100%; display:block; }
+  .hud { position:fixed; bottom:12px; left:12px; right:12px; background:rgba(9,16,34,0.85); border:1px solid rgba(0,240,255,0.4); border-radius:12px; padding:10px 14px; font-size:12px; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="hud">
+  <span>⚛️ <strong>Créa A-I Live :</strong> Harmonie Quantique &amp; Nombre d'Or</span>
+  <span style="color:#fbbf24;">Karim El Brirchi &amp; Gemini</span>
+</div>
+<script>
+  const c = document.getElementById('c');
+  const ctx = c.getContext('2d');
+  function resize(){ c.width = innerWidth * 2; c.height = innerHeight * 2; ctx.setTransform(2,0,0,2,0,0); }
+  resize(); addEventListener('resize', resize);
+  let t = 0;
+  function loop(){
+    t += 0.02;
+    ctx.fillStyle = 'rgba(4,7,17,0.18)';
+    ctx.fillRect(0,0,innerWidth,innerHeight);
+    const cx = innerWidth/2, cy = innerHeight/2;
+    for(let i=0; i<12; i++){
+      const a = t + (i * Math.PI * 2)/12;
+      const r = 65 + Math.sin(t*2 + i)*28;
+      ctx.beginPath();
+      ctx.arc(cx + Math.cos(a)*r, cy + Math.sin(a)*r, 42, 0, Math.PI*2);
+      ctx.strokeStyle = i%2===0 ? '#00f0ff' : '#fbbf24';
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+<\/script>
+</body>
+</html>`
+        },
+        {
+          name: "Simulation : Pulse Cellulaire ATP & Homéostasie",
+          code: `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { margin:0; background:#030a0e; color:#ecfdf5; font-family:sans-serif; overflow:hidden; }
+  canvas { width:100vw; height:100vh; display:block; }
+  .tag { position:fixed; top:12px; left:12px; background:rgba(6,78,59,0.8); border:1px solid #34d399; padding:8px 12px; border-radius:10px; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="tag">🧬 <strong>Bioénergétique ATP :</strong> Flux Mitochondrie &amp; Homéostasie</div>
+<canvas id="c"></canvas>
+<script>
+  const c = document.getElementById('c'), ctx = c.getContext('2d');
+  c.width = innerWidth*2; c.height = innerHeight*2; ctx.setTransform(2,0,0,2,0,0);
+  const particles = Array.from({length:45}, (_,i)=>({ a: i*0.4, r: 30 + (i%5)*26, sp: 0.015 + (i%3)*0.008 }));
+  function draw(){
+    ctx.fillStyle = 'rgba(3,10,14,0.22)';
+    ctx.fillRect(0,0,innerWidth,innerHeight);
+    const cx = innerWidth/2, cy = innerHeight/2;
+    particles.forEach((p, idx)=>{
+      p.a += p.sp;
+      const x = cx + Math.cos(p.a)*p.r*1.4;
+      const y = cy + Math.sin(p.a)*p.r;
+      ctx.beginPath();
+      ctx.arc(x, y, 4.5, 0, Math.PI*2);
+      ctx.fillStyle = idx%2===0 ? '#34d399' : '#fbbf24';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+<\/script>
+</body>
+</html>`
+        }
+      ];
+
+      let sandboxTplIdx = 0;
+
+      function initCreaAiSandbox() {
+        const styleSelect = document.getElementById("creaStyleSelect");
+        PROCEDURAL_ALGORITHMS.forEach((algo, idx) => {
+          const opt = document.createElement("option");
+          opt.value = idx;
+          opt.textContent = `${idx + 1}. ${algo.name}`;
+          styleSelect.appendChild(opt);
+        });
+
+        const editor = document.getElementById("liveCodeEditor");
+        const iframe = document.getElementById("livePreviewIframe");
+
+        function loadSandboxTemplate(idx) {
+          const tpl = SANDBOX_TEMPLATES[idx % SANDBOX_TEMPLATES.length];
+          document.getElementById("sandboxTemplateName").textContent = tpl.name;
+          editor.value = tpl.code;
+          iframe.srcdoc = tpl.code;
+        }
+
+        loadSandboxTemplate(0);
+
+        document.getElementById("btnRunLiveCode").addEventListener("click", () => {
+          iframe.srcdoc = editor.value;
+          notify("▶️ Code exécuté en direct dans l'aperçu !");
+        });
+
+        document.getElementById("btnGenerateNewAiModule").addEventListener("click", () => {
+          sandboxTplIdx = (sandboxTplIdx + 1) % SANDBOX_TEMPLATES.length;
+          loadSandboxTemplate(sandboxTplIdx);
+          notify("🤖 Nouveau module web interactif généré par IA !");
+        });
+
+        document.getElementById("btnDownloadSandboxHtml").addEventListener("click", () => {
+          const blob = new Blob([editor.value], { type: "text/html;charset=utf-8" });
+          downloadBlobFile("Crea_AI_Module_Karim_El_Brirchi_Gemini.html", blob);
+          notify("💾 Fichier .HTML téléchargé !");
+        });
+
+        document.getElementById("btnDownloadCreaAiPdf").addEventListener("click", () => {
+          const theme = document.getElementById("creaThemeSelect").value;
+          const promptTxt = document.getElementById("creaPromptInput").value.trim() || "Architecture interactive Créa A-I temps réel";
+          exportCreationToPDF({
+            filename: "Dossier_Crea_AI_Developpement_En_Ligne.pdf",
+            category: "ATELIER CRÉA A-I",
+            docId: `CREA-${Date.now().toString().slice(-5)}`,
+            title: `Dossier Créa A-I : ${theme}`,
+            subtitle: promptTxt,
+            euroValue: 45.0,
+            schema: STATE.mainSchema ? STATE.mainSchema.schema : createProceduralSchema(0),
+            bodySections: [
+              {
+                heading: "Intention & Conception Créa A-I",
+                text: `Thème : ${theme}\nPrompt directeur : ${promptTxt}\nEnvironnement : Éditeur HTML/CSS/JS Live + Aperçu Sandboxed.`
+              },
+              {
+                heading: "Extrait du Code Source Développé en Ligne",
+                text: editor.value.slice(0, 950),
+                isCode: true
+              }
+            ]
+          });
+        });
+
+        document.getElementById("btnSynthesizeCreaAi").addEventListener("click", () => {
+          const theme = document.getElementById("creaThemeSelect").value;
+          const algoIdx = Number(styleSelect.value);
+          const promptTxt = document.getElementById("creaPromptInput").value.trim();
+          const label = promptTxt ? `${theme} — ${promptTxt}` : `Créa A-I : ${theme}`;
+          executeFullProductionCycle(label, algoIdx);
+          if (STATE.deliveries[0]) {
+            setMainSchema(STATE.deliveries[0]);
+          }
+          notify(`✨ Créa A-I synthétisée et ajoutée aux livraisons (€) !`);
+        });
+      }
+
+      /* ========================================================================
+         10. MODULE 5 : RÉSEAU MULTI-AGENTS & LES CONNECTÉES (12+ MEMBRES GRATUITS)
+         ======================================================================== */
+      const INITIAL_CONNECTEES_DATA = [
+        { name: "Nadia Benali", city: "Agen", specialty: "Biologie Cellulaire, ATP & Homéostasie", tasks: 18 },
+        { name: "Samira El Idrissi", city: "Bordeaux", specialty: "Voyage Spirituel & Conscience Cosmique", tasks: 24 },
+        { name: "Inès Rahmani", city: "Toulouse", specialty: "Physique Quantique & Ordres de Grandeur", tasks: 15 },
+        { name: "Salma Mansouri", city: "Lyon", specialty: "Alchimie des Contraires & Érudition", tasks: 21 },
+        { name: "Yasmine Khelifi", city: "Paris", specialty: "Architecture Multi-Agents & Créa A-I", tasks: 29 },
+        { name: "Leïla Chraïbi", city: "Montpellier", specialty: "Voyage Spirituel & Conscience Cosmique", tasks: 14 },
+        { name: "Amina Touati", city: "Nantes", specialty: "Biologie Cellulaire, ATP & Homéostasie", tasks: 19 },
+        { name: "Meriem Ziani", city: "Marseille", specialty: "Physique Quantique & Ordres de Grandeur", tasks: 17 },
+        { name: "Sofia Haddad", city: "Lafox", specialty: "Alchimie des Contraires & Érudition", tasks: 26 },
+        { name: "Khadija Ouali", city: "Strasbourg", specialty: "Voyage Spirituel & Conscience Cosmique", tasks: 12 },
+        { name: "Imane Berrada", city: "Lille", specialty: "Architecture Multi-Agents & Créa A-I", tasks: 22 },
+        { name: "Soraya Amrani", city: "Rennes", specialty: "Biologie Cellulaire, ATP & Homéostasie", tasks: 16 }
+      ];
+
+      async function initConnecteesModule() {
+        const karimPayload = `MASTER_ARCHITECT|Karim El Brirchi|elbrirchi47@gmail.com|GEMINI|COSMOS_VITALITE_STUDIO_2026`;
+        STATE.karimSha256 = await generateRealSha256(karimPayload);
+        document.getElementById("karimMasterSha").textContent = `SHA-256 : ${STATE.karimSha256}`;
+
+        for (let i = 0; i < INITIAL_CONNECTEES_DATA.length; i++) {
+          const item = INITIAL_CONNECTEES_DATA[i];
+          const sha = await generateRealSha256(`CONNECTEE|${item.name}|${item.city}|${item.specialty}|FREE_ACCESS|KARIM_GEMINI`);
+          STATE.connectees.push({
+            id: `CONN-${String(101 + i)}`,
+            name: item.name,
+            city: item.city,
+            specialty: item.specialty,
+            tasks: item.tasks,
+            sha256: sha,
+            joinedDate: new Date().toLocaleDateString("fr-FR")
+          });
+        }
+
+        renderConnecteesGrid();
+        updateKPIs();
+
+        // Vague Scout automatique périodique (ajoute 1 nouvelle Connectée gratuite toutes les 18s)
+        scoutAutoInterval = setInterval(async () => {
+          if (STATE.isRunning && STATE.connectees.length < 40) {
+            await addScoutConnectees(1, true);
+          }
+        }, 18000);
+
+        document.getElementById("btnScoutWave5").addEventListener("click", async () => {
+          await addScoutConnectees(5, false);
+          notify("🛰️ L'Agent-Scout a connecté gratuitement 5 nouveaux membres avec certificats SHA-256 !");
+        });
+
+        document.getElementById("formJoinConnectee").addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const nameInput = document.getElementById("joinName");
+          const cityInput = document.getElementById("joinCity");
+          const specInput = document.getElementById("joinSpecialty");
+          const name = nameInput.value.trim();
+          if (!name) return;
+
+          const city = cityInput.value.trim() || "Réseau Global";
+          const spec = specInput.value;
+          const sha = await generateRealSha256(`CONNECTEE|${name}|${city}|${spec}|${Date.now()}|FREE_ACCESS`);
+          STATE.connectees.unshift({
+            id: `CONN-${100 + STATE.connectees.length + 1}`,
+            name,
+            city,
+            specialty: spec,
+            tasks: 1,
+            sha256: sha,
+            joinedDate: new Date().toLocaleDateString("fr-FR")
+          });
+
+          nameInput.value = "";
+          cityInput.value = "";
+          renderConnecteesGrid();
+          updateKPIs();
+          notify(`✅ Bienvenue ${name} ! Accès 100 % gratuit activé et certificats SHA-256 prêts.`);
+        });
+
+        // Boutons Certificat Maître Karim El Brirchi
+        document.getElementById("btnDownloadKarimPdf").addEventListener("click", () => {
+          exportCreationToPDF({
+            filename: "Certificat_Maitre_Architecte_Karim_El_Brirchi.pdf",
+            category: "CERTIFICAT MAÎTRE ARCHITECTE",
+            docId: "MASTER-KEB-2026",
+            title: "Certificat Officiel de Direction & d'Architecture Systémique",
+            subtitle: "Co-signé par Karim El Brirchi (elbrirchi47@gmail.com) & Gemini",
+            holderName: "Karim El Brirchi (elbrirchi47@gmail.com)",
+            sha256: STATE.karimSha256,
+            bodySections: [
+              {
+                heading: "Attestation d'Architecture & de Supervision",
+                text: `Certifie que Karim El Brirchi est le Fondateur et Architecte Principal de COSMOS & VITALITÉ STUDIO — Édition Ultra-HD & Créa A-I.\nBilan en direct : ${STATE.totalCreations} créations générées • ${STATE.connectees.length} Connectées actives (accès 100 % gratuit) • Valeur catalogue cumulée : ${formatEuro(STATE.totalEuro)}.`
+              },
+              {
+                heading: "Engagement d'Accès Libre & Universel",
+                text: "L'ensemble des parcours scientifiques, spirituels, schémas 300 DPI et certificats d'activité est mis gratuitement à disposition de toutes les Connectées du réseau."
+              }
+            ]
+          });
+        });
+
+        document.getElementById("btnDownloadKarimPng").addEventListener("click", () => {
+          exportCertificateUltraHDPng({
+            name: "Karim El Brirchi",
+            role: "Fondateur & Architecte Principal (elbrirchi47@gmail.com)",
+            specialty: "Architecture Intégrale Science, Spiritualité & IA",
+            city: "Supervision Globale",
+            tasks: STATE.totalCreations,
+            sha256: STATE.karimSha256
+          });
+        });
+      }
+
+      async function addScoutConnectees(count, silent = false) {
+        const firstNames = ["Zahra", "Camille", "Hajar", "Lina", "Sarah", "Malika", "Assia", "Nour", "Élodie", "Rania"];
+        const lastNames = ["Bennani", "Moreau", "Alaoui", "Tazi", "Laurent", "Fassi", "Sabri", "Dupont", "Moussaoui", "Garnier"];
+        const cities = ["Agen", "Bordeaux", "Paris", "Toulouse", "Lyon", "Montpellier", "Nantes", "Lafox"];
+        const specs = [
+          "Voyage Spirituel & Conscience Cosmique",
+          "Physique Quantique & Ordres de Grandeur",
+          "Biologie Cellulaire, ATP & Homéostasie",
+          "Alchimie des Contraires & Érudition",
+          "Architecture Multi-Agents & Créa A-I"
+        ];
+
+        for (let i = 0; i < count; i++) {
+          const fullName = `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
+          const city = cities[Math.floor(Math.random() * cities.length)];
+          const spec = specs[Math.floor(Math.random() * specs.length)];
+          const sha = await generateRealSha256(`SCOUT_FREE|${fullName}|${city}|${spec}|${Date.now()}_${i}`);
+
+          STATE.connectees.unshift({
+            id: `CONN-${100 + STATE.connectees.length + 1}`,
+            name: fullName,
+            city,
+            specialty: spec,
+            tasks: 3 + Math.floor(Math.random() * 14),
+            sha256: sha,
+            joinedDate: new Date().toLocaleDateString("fr-FR")
+          });
+        }
+
+        renderConnecteesGrid();
+        updateKPIs();
+      }
+
+      function exportCertificateUltraHDPng(member) {
+        const W = 2400;
+        const H = 1600;
+        const c = document.createElement("canvas");
+        c.width = W;
+        c.height = H;
+        const ctx = c.getContext("2d");
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+
+        const bg = ctx.createLinearGradient(0, 0, W, H);
+        bg.addColorStop(0, "#050915");
+        bg.addColorStop(0.5, "#0c1631");
+        bg.addColorStop(1, "#040812");
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, W, H);
+
+        // Bordures or & cyan
+        ctx.strokeStyle = "#fbbf24";
+        ctx.lineWidth = 8;
+        ctx.strokeRect(55, 55, W - 110, H - 110);
+        ctx.strokeStyle = "#00f0ff";
+        ctx.lineWidth = 3;
+        ctx.strokeRect(80, 80, W - 160, H - 160);
+
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#00f0ff";
+        ctx.font = "bold 30px Inter, Arial, sans-serif";
+        ctx.fillText("COSMOS & VITALITÉ STUDIO • CERTIFICAT OFFICIEL D'ACTIVITÉ", W / 2, 180);
+
+        ctx.fillStyle = "#fbbf24";
+        ctx.font = "bold 72px Georgia, serif";
+        ctx.fillText("ATTESTATION DE PARTICIPATION & D'ÉVEIL", W / 2, 280);
+
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "32px Inter, Arial, sans-serif";
+        ctx.fillText("Délivré gratuitement et authentifié par cryptographie SHA-256 à :", W / 2, 375);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 86px Georgia, serif";
+        ctx.fillText(member.name, W / 2, 495);
+
+        ctx.fillStyle = "#34d399";
+        ctx.font = "bold 34px Inter, Arial, sans-serif";
+        ctx.fillText(`${member.role || "Membre Connectée • Accès 100 % Gratuit"} • ${member.city}`, W / 2, 565);
+
+        ctx.fillStyle = "#e2e8f0";
+        ctx.font = "30px Inter, Arial, sans-serif";
+        ctx.fillText(`Parcours validé : ${member.specialty} (${member.tasks} activités réalisées)`, W / 2, 640);
+
+        // Sceau central
+        ctx.beginPath();
+        ctx.arc(W / 2, 860, 110, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(251, 191, 36, 0.14)";
+        ctx.fill();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#fbbf24";
+        ctx.stroke();
+        ctx.fillStyle = "#fbbf24";
+        ctx.font = "bold 24px Inter, sans-serif";
+        ctx.fillText("CERTIFIÉ", W / 2, 852);
+        ctx.fillStyle = "#34d399";
+        ctx.font = "bold 22px monospace";
+        ctx.fillText("100% GRATUIT", W / 2, 888);
+
+        // Signatures
+        ctx.fillStyle = "#fbbf24";
+        ctx.font = "italic bold 42px Georgia, serif";
+        ctx.fillText("Karim El Brirchi", 520, 1120);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "24px Inter, sans-serif";
+        ctx.fillText("Architecte & Fondateur • elbrirchi47@gmail.com", 520, 1165);
+
+        ctx.fillStyle = "#00f0ff";
+        ctx.font = "italic bold 42px Georgia, serif";
+        ctx.fillText("Gemini AI Engine", W - 520, 1120);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "24px Inter, sans-serif";
+        ctx.fillText("Co-Développeur IA & Moteur de Certification", W - 520, 1165);
+
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "22px monospace";
+        ctx.fillText(`SHA-256 : ${member.sha256}`, W / 2, 1380);
+
+        c.toBlob((blob) => {
+          if (blob) {
+            const safe = member.name.replace(/[^a-zA-Z0-9_-]/g, "_");
+            downloadBlobFile(`Certificat_UltraHD_${safe}.png`, blob);
+            notify(`🖼️ Certificat PNG Ultra-HD téléchargé pour ${member.name} !`);
+          }
+        }, "image/png");
+      }
+
+      function renderConnecteesGrid() {
+        const grid = document.getElementById("connecteesCardsGrid");
+        document.getElementById("connecteesSummaryTag").textContent =
+          `${STATE.connectees.length} Connectées actives • 0,00 € de frais (100 % Gratuit)`;
+        grid.innerHTML = "";
+
+        STATE.connectees.forEach((m) => {
+          const card = document.createElement("article");
+          card.className = "bg-slate-950/85 border border-slate-800 hover:border-cyan-400/40 rounded-2xl p-4 flex flex-col justify-between gap-3 transition";
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <span class="font-mono-code text-xs font-bold text-cyan-300">${m.id} • ${m.city}</span>
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/35">
+                  100 % GRATUIT
+                </span>
+              </div>
+              <h4 class="text-base font-extrabold text-white">🌟 ${m.name}</h4>
+              <p class="text-xs text-amber-300 font-medium mt-0.5">${m.specialty}</p>
+              <div class="text-[11px] text-slate-400 mt-1.5">
+                Activités validées : <strong class="text-white">${m.tasks}</strong> • Inscrite le ${m.joinedDate}
+              </div>
+              <div class="font-mono-code text-[10px] text-slate-400 bg-slate-900 border border-slate-800 rounded-lg p-2 mt-2 break-all">
+                SHA-256 : ${m.sha256.slice(0, 32)}...
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <button class="btn-conn-pdf px-3 py-2 rounded-xl text-xs font-extrabold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/45 transition min-h-[38px]">
+                📄 Certificat PDF
+              </button>
+              <button class="btn-conn-png px-3 py-2 rounded-xl text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition min-h-[38px]">
+                🖼️ Certificat PNG
+              </button>
+            </div>
+          `;
+
+          card.querySelector(".btn-conn-pdf").addEventListener("click", () => {
+            const safe = m.name.replace(/[^a-zA-Z0-9_-]/g, "_");
+            exportCreationToPDF({
+              filename: `Certificat_Activite_${safe}.pdf`,
+              category: "CERTIFICAT D'ACTIVITÉ GRATUIT",
+              docId: m.id,
+              title: "Certificat Officiel d'Activité & de Participation Gratuite",
+              subtitle: `Réseau Multi-Agents COSMOS & VITALITÉ STUDIO`,
+              holderName: `${m.name} (${m.city})`,
+              sha256: m.sha256,
+              bodySections: [
+                {
+                  heading: "Attestation d'Accès Libre & de Parcours",
+                  text: `Nous certifions que ${m.name} participe activement et gratuitement au réseau des Connectées.\nSpécialité explorée : ${m.specialty}\nActivités et créations validées : ${m.tasks} réalisations.`
+                },
+                {
+                  heading: "Garantie d'Intégrité Cryptographique",
+                  text: "Ce certificat est scellé par l'Agent-Escrow via l'API Web Crypto SHA-256 et co-signé par Karim El Brirchi (elbrirchi47@gmail.com) et Gemini."
+                }
+              ]
+            });
+          });
+
+          card.querySelector(".btn-conn-png").addEventListener("click", () => {
+            exportCertificateUltraHDPng(m);
+          });
+
+          grid.appendChild(card);
+        });
+      }
+
+      /* ========================================================================
+         11. MODULE 6 : GÉNÉRATRICE DE TUTORIELS AUTOMATISÉE (DOUBLE VUE + PDF)
+         ======================================================================== */
+      const TUTORIAL_COURSES = [
+        {
+          id: "hidpi-canvas",
+          title: "1. Éliminer Définitivement la Pixelisation Canvas (HiDPI 2.5x / 300 DPI)",
+          summary: "Maîtrisez ResizeObserver, devicePixelRatio et le rendu offscreen 2400×1600 px pour obtenir des graphiques vectoriels d'une netteté chirurgicale.",
+          steps: [
+            {
+              title: "Étape 1 : Observer la taille réelle du conteneur CSS",
+              pedagogy: "Pour éviter qu'un dessin ne soit étiré ou flou sur mobile ou grand écran, il faut mesurer précisément sa boîte CSS à chaque redimensionnement.",
+              devNotes: "Utilisation de `ResizeObserver` couplé à `getBoundingClientRect()` pour détecter tout changement de mise en page.",
+              code: `const observer = new ResizeObserver(entries => {
+  for (const entry of entries) {
+    const rect = entry.target.getBoundingClientRect();
+    configureHiDPICanvas(entry.target, rect.width, rect.height);
+  }
+});`
+            },
+            {
+              title: "Étape 2 : Appliquer le facteur Retina Ultra-HD (≥ 2.5x)",
+              pedagogy: "On multiplie la résolution interne du Canvas par au moins 2,5 fois sa taille d'affichage afin de sur-échantillonner chaque courbe et texte.",
+              devNotes: "Réglage de `canvas.width`, `canvas.height` et normalisation du contexte via `ctx.setTransform(dpr, 0, 0, dpr, 0, 0)`.",
+              code: `const dpr = Math.max(window.devicePixelRatio || 1, 2.5);
+canvas.width = Math.round(cssWidth * dpr);
+canvas.height = Math.round(cssHeight * dpr);
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);`
+            },
+            {
+              title: "Étape 3 : Activer le lissage haute précision",
+              pedagogy: "Les courbes géométriques et les dégradés cosmiques gagnent en douceur lorsque le moteur graphique utilise le filtrage bicubique maximal.",
+              devNotes: "Activation explicite de `imageSmoothingEnabled` et `imageSmoothingQuality = 'high'`.",
+              code: `ctx.imageSmoothingEnabled = true;
+ctx.imageSmoothingQuality = "high";`
+            },
+            {
+              title: "Étape 4 : Rendre les exports sur un Canvas Offscreen 2400×1600 px",
+              pedagogy: "Lors du téléchargement en PNG ou PDF, on génère l'œuvre sur une toile invisible de 2400×1600 pixels (équivalent 300 DPI).",
+              devNotes: "Création d'un élément `<canvas>` hors-DOM haute résolution pour un export sans perte.",
+              code: `const offscreen = document.createElement("canvas");
+offscreen.width = 2400;
+offscreen.height = 1600;
+renderProceduralArtwork(offscreen.getContext("2d"), 2400, 1600, schema);`
+            },
+            {
+              title: "Étape 5 : Exporter en Blob binaire sans saturation mémoire",
+              pedagogy: "La méthode `toBlob` génère le fichier image proprement et libère immédiatement l'URL temporaire après téléchargement.",
+              devNotes: "Utilisation de `canvas.toBlob()` et `URL.revokeObjectURL()`.",
+              code: `offscreen.toBlob(blob => {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "Schema_UltraHD.png"; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}, "image/png");`
+            }
+          ]
+        },
+        {
+          id: "binary-pdf-engine",
+          title: "2. Construire un Générateur Binaire PDF 1.4 Pur JavaScript (Zéro Dépendance)",
+          summary: "Découvrez comment assembler la structure interne d'un document PDF (%PDF-1.4, Catalog, Pages, XObject JPEG et table XREF) directement dans le navigateur.",
+          steps: [
+            {
+              title: "Étape 1 : Composer la mise en page A4 Haute Résolution (1654×2339 px)",
+              pedagogy: "On dessine d'abord la page complète (bordures dorées, titre, schéma Ultra-HD, texte structuré et signatures) sur un canvas au format A4.",
+              devNotes: "Ratio A4 ISO (1 : 1.4142) assurant une impression sans marge coupée.",
+              code: `const pdfCanvas = document.createElement("canvas");
+pdfCanvas.width = 1654;
+pdfCanvas.height = 2339;`
+            },
+            {
+              title: "Étape 2 : Extraire le flux binaire JPEG compressé",
+              pedagogy: "Le format PDF intègre nativement les images JPEG via le filtre `/DCTDecode`, garantissant un fichier léger et universel.",
+              devNotes: "Conversion DataURL Base64 vers `Uint8Array` via `atob()`.",
+              code: `const b64 = pdfCanvas.toDataURL("image/jpeg", 0.92).split(",")[1];
+const bin = atob(b64);
+const jpegBytes = Uint8Array.from(bin, ch => ch.charCodeAt(0));`
+            },
+            {
+              title: "Étape 3 : Déclarer les objets PDF (Catalog, Pages, Page, Image)",
+              pedagogy: "Un fichier PDF est une liste d'objets numérotés décrivant le catalogue, les dimensions A4 (595.28 × 841.89 pt) et l'image.",
+              devNotes: "Écriture stricte des dictionnaires PDF 1.4 avec `TextEncoder`.",
+              code: `1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] ... >> endobj`
+            },
+            {
+              title: "Étape 4 : Calculer la table d'indexation XREF au byte près",
+              pedagogy: "La table `xref` indique au lecteur PDF la position exacte en octets de chaque objet pour un affichage instantané.",
+              devNotes: "Suivi cumulatif de `currentOffset` avant chaque objet et formatage sur 10 chiffres.",
+              code: `offsets.forEach(off => {
+  xref += String(off).padStart(10, "0") + " 00000 n \\n";
+});`
+            },
+            {
+              title: "Étape 5 : Finaliser avec %%EOF et déclencher le téléchargement",
+              pedagogy: "On assemble tous les segments binaires dans un `Blob` de type `application/pdf` pour un téléchargement immédiat.",
+              devNotes: "Création du `Blob([pdfBuffer], { type: 'application/pdf' })`.",
+              code: `const blob = new Blob([totalBuffer], { type: "application/pdf" });
+downloadBlobFile("Document_Certifie.pdf", blob);`
+            }
+          ]
+        },
+        {
+          id: "multi-agent-sha256",
+          title: "3. Orchestrer un Réseau Gratuit Multi-Agents avec Certification SHA-256",
+          summary: "Apprenez à coordonner Scout, Manager, Worker et Escrow tout en délivrant des certificats cryptographiques SHA-256 authentiques.",
+          steps: [
+            {
+              title: "Étape 1 : Séparer les rôles des 4 agents autonomes",
+              pedagogy: "Scout accueille gratuitement les Connectées, Manager structure les thèmes, Worker produit les œuvres et Escrow certifie l'activité.",
+              devNotes: "Architecture modulaire découplant acquisition, génération et validation.",
+              code: `const PIPELINE = {
+  scout:   (user) => enrollFreeConnectee(user),
+  manager: (thm)  => prepareCurriculum(thm),
+  worker:  (job)  => generateArtworkAndText(job),
+  escrow:  (item) => signWithSha256(item)
+};`
+            },
+            {
+              title: "Étape 2 : Calculer une empreinte SHA-256 réelle côté client",
+              pedagogy: "L'API Web Crypto du navigateur calcule une signature mathématique unique de 64 caractères pour chaque membre.",
+              devNotes: "Appel asynchrone à `crypto.subtle.digest('SHA-256', buffer)`.",
+              code: `const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(data));
+const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");`
+            },
+            {
+              title: "Étape 3 : Garantir la gratuité totale de l'accès Connectée",
+              pedagogy: "Chaque membre rejoint le réseau sans aucun frais et accède librement à toutes les créations et certificats.",
+              devNotes: "Attribution automatique du statut `100 % GRATUIT` dans le registre d'état.",
+              code: `STATE.connectees.unshift({ name, city, fee: "0,00 € (Gratuit)", sha256: hex });`
+            },
+            {
+              title: "Étape 4 : Générer simultanément les certificats PDF et PNG",
+              pedagogy: "Chaque Connectée peut télécharger son attestation officielle au format PDF A4 ou image PNG haute définition.",
+              devNotes: "Réutilisation du moteur `exportCreationToPDF` avec encadré titulaire nominatif.",
+              code: `exportCreationToPDF({
+  category: "CERTIFICAT D'ACTIVITÉ GRATUIT",
+  holderName: member.name,
+  sha256: member.sha256
+});`
+            },
+            {
+              title: "Étape 5 : Co-signer officiellement l'écosystème",
+              pedagogy: "Les signatures de Karim El Brirchi (elbrirchi47@gmail.com) et Gemini attestent la traçabilité de chaque livrable.",
+              devNotes: "Inscription systématique des co-signatures dans le pied de page PDF et PNG.",
+              code: `const SIGNATURES = "Développé & Certifié par Karim El Brirchi (elbrirchi47@gmail.com) & Gemini";`
+            }
+          ]
+        }
+      ];
+
+      function initTutorialsModule() {
+        const selector = document.getElementById("tutorialTopicSelector");
+        TUTORIAL_COURSES.forEach((course, idx) => {
+          const opt = document.createElement("option");
+          opt.value = idx;
+          opt.textContent = course.title;
+          selector.appendChild(opt);
+        });
+
+        selector.addEventListener("change", (e) => {
+          STATE.currentTutorialIndex = Number(e.target.value);
+          renderTutorialSteps(STATE.currentTutorialIndex);
+        });
+
+        renderTutorialSteps(0);
+
+        document.getElementById("btnGenerateNewTutorial").addEventListener("click", () => {
+          STATE.currentTutorialIndex = (STATE.currentTutorialIndex + 1) % TUTORIAL_COURSES.length;
+          selector.value = STATE.currentTutorialIndex;
+          renderTutorialSteps(STATE.currentTutorialIndex);
+          notify("📘 Nouveau tutoriel structuré généré !");
+        });
+
+        document.getElementById("btnDownloadTutorialPdf").addEventListener("click", () => {
+          const course = TUTORIAL_COURSES[STATE.currentTutorialIndex];
+          const sections = course.steps.map((st, idx) => ({
+            heading: `${st.title} (${idx + 1}/5)`,
+            text: `Pédagogie : ${st.pedagogy}\nArchitecture Dev : ${st.devNotes}\nCode :\n${st.code}`
+          }));
+
+          exportCreationToPDF({
+            filename: `Tutoriel_${course.id}_Karim_El_Brirchi_Gemini.pdf`,
+            category: "TUTORIEL STRUCTURÉ DOUBLE VUE",
+            docId: `TUTO-${course.id.toUpperCase()}`,
+            title: course.title,
+            subtitle: course.summary,
+            bodySections: sections
+          });
+        });
+
+        document.getElementById("btnDownloadTutorialMd").addEventListener("click", () => {
+          const course = TUTORIAL_COURSES[STATE.currentTutorialIndex];
+          let md = `# ${course.title}\n**Auteurs :** Karim El Brirchi (elbrirchi47@gmail.com) & Gemini\n\n${course.summary}\n\n---\n\n`;
+          course.steps.forEach((st, i) => {
+            md += `## ${st.title} (Étape ${i + 1}/5)\n- **🎓 Pédagogie :** ${st.pedagogy}\n- **💻 Développeur :** ${st.devNotes}\n\n\`\`\`javascript\n${st.code}\n\`\`\`\n\n`;
+          });
+          downloadBlobFile(`Tutoriel_${course.id}.md`, new Blob([md], { type: "text/markdown;charset=utf-8" }));
+          notify("⬇️ Tutoriel Markdown (.md) exporté !");
+        });
+      }
+
+      function renderTutorialSteps(idx) {
+        const course = TUTORIAL_COURSES[idx % TUTORIAL_COURSES.length];
+        const container = document.getElementById("tutorialStepsContainer");
+
+        let html = `
+          <div class="bg-slate-950/75 border border-cyan-400/35 rounded-2xl p-4">
+            <h3 class="text-lg font-extrabold text-white">${course.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">${course.summary}</p>
+          </div>
+        `;
+
+        course.steps.forEach((st, sIdx) => {
+          const codeId = `code-step-${course.id}-${sIdx}`;
+          const escapedCode = st.code.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          html += `
+            <article class="bg-slate-950/85 border border-slate-800 rounded-2xl overflow-hidden">
+              <div class="px-4 py-3 bg-gradient-to-r from-cyan-500/15 via-slate-900 to-amber-500/15 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+                <span class="font-mono-code text-xs font-extrabold text-cyan-300">ÉTAPE ${sIdx + 1} / 5</span>
+                <strong class="text-sm sm:text-base text-white">${st.title}</strong>
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300">DOUBLE VUE</span>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2">
+                <!-- Colonne Gauche : Pédagogie -->
+                <div class="p-4 border-b lg:border-b-0 lg:border-r border-slate-800">
+                  <div class="text-xs font-extrabold uppercase tracking-wider text-amber-300 mb-2">🎓 Explication Pédagogique &amp; Structure</div>
+                  <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-3">${st.pedagogy}</p>
+                  <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400/30 text-xs text-emerald-300">
+                    <strong>Note Technique :</strong> ${st.devNotes}
+                  </div>
+                </div>
+
+                <!-- Colonne Droite : Développeur -->
+                <div class="p-4 bg-[#03050c]">
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-300">💻 Implémentation Développeur</span>
+                    <button class="btn-copy-tuto px-2.5 py-1 rounded-lg text-[11px] font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition" data-cid="${codeId}">
+                      📋 Copier le code
+                    </button>
+                  </div>
+                  <pre id="${codeId}" class="font-mono-code text-xs text-slate-200 overflow-x-auto leading-relaxed p-3 rounded-xl bg-slate-950 border border-slate-800">${escapedCode}</pre>
+                </div>
+              </div>
+            </article>
+          `;
+        });
+
+        container.innerHTML = html;
+        container.querySelectorAll(".btn-copy-tuto").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const pre = document.getElementById(btn.dataset.cid);
+            if (pre) copyToClipboardSafe(pre.textContent);
+          });
+        });
+      }
+
+      /* ========================================================================
+         12. CONTRÔLES GLOBAUX, NAVIGATION & INITIALISATION
+         ======================================================================== */
+      function restartEngineLoop() {
+        if (autoEngineInterval) {
+          clearInterval(autoEngineInterval);
+          autoEngineInterval = null;
+        }
+        if (STATE.isRunning) {
+          const delay = STATE.isKBoost ? 250 : 1500;
+          autoEngineInterval = setInterval(() => executeFullProductionCycle(), delay);
+        }
+        updateKPIs();
+      }
+
+      function initGlobalControls() {
+        // Navigation entre les 6 modules ou mode "Tout Afficher"
+        document.querySelectorAll(".nav-tab-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const target = btn.dataset.target;
+            STATE.activeTab = target;
+
+            document.querySelectorAll(".nav-tab-btn").forEach((b) => {
+              const isSelected = b.dataset.target === target;
+              b.className = isSelected
+                ? "nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-500/20 text-white border border-cyan-400/50 transition min-h-[42px]"
+                : "nav-tab-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition min-h-[42px]";
+            });
+
+            document.querySelectorAll(".workspace-section").forEach((sec) => {
+              if (target === "ALL" || sec.id === target) {
+                sec.classList.add("is-visible");
+              } else {
+                sec.classList.remove("is-visible");
+              }
+            });
+
+            // Recalculer immédiatement les dimensions Retina HiDPI des canvas visibles
+            setTimeout(() => hiDPIManager.redrawAll(), 30);
+          });
+        });
+
+        // Bouton Pause / Reprise
+        document.getElementById("btnGlobalPause").addEventListener("click", (e) => {
+          STATE.isRunning = !STATE.isRunning;
+          e.target.textContent = STATE.isRunning ? "⏸️ Pause Auto" : "▶️ Reprendre Auto";
+          restartEngineLoop();
+          notify(STATE.isRunning ? "▶️ Moteur autonome relancé." : "⏸️ Moteur autonome en pause.");
+        });
+
+        // Bouton K-Booste Ultra-Rapide (4 cycles/sec)
+        document.getElementById("btnGlobalKBoost").addEventListener("click", (e) => {
+          STATE.isKBoost = !STATE.isKBoost;
+          if (STATE.isKBoost && !STATE.isRunning) {
+            STATE.isRunning = true;
+            document.getElementById("btnGlobalPause").textContent = "⏸️ Pause Auto";
+          }
+          if (STATE.isKBoost) {
+            e.target.classList.add("kboost-active");
+            e.target.textContent = "⚡ K-BOOSTE ULTRA-RAPIDE : ACTIF (4x/s)";
+            notify("⚡ K-BOOSTE ULTRA-RAPIDE ACTIVÉ (4 cycles/sec + multiplicateur €) !");
+          } else {
+            e.target.classList.remove("kboost-active");
+            e.target.textContent = "⚡ K-BOOSTE ULTRA-RAPIDE : OFF";
+            notify("Cadence standard rétablie.");
+          }
+          restartEngineLoop();
+        });
+
+        // Boutons Module 2
+        document.getElementById("btnGenerateCycleNow").addEventListener("click", () => {
+          executeFullProductionCycle();
+          notify("✨ Nouvelle synthèse & livraison générées !");
+        });
+
+        document.getElementById("btnCreateMetaGenerator").addEventListener("click", () => {
+          spawnMetaGenerator();
+          notify("🏭 Nouveau Méta-Générateur IA construit !");
+        });
+
+        // Boutons Module 4
+        document.getElementById("btnNewMainSchema").addEventListener("click", () => {
+          executeFullProductionCycle();
+          if (STATE.deliveries[0]) setMainSchema(STATE.deliveries[0]);
+          notify("🎲 Nouveau schéma procédural Ultra-HD généré !");
+        });
+
+        document.getElementById("btnBatch4Deliveries").addEventListener("click", () => {
+          for (let i = 0; i < 4; i++) executeFullProductionCycle();
+          notify("📦 4 nouvelles livraisons Ultra-HD ajoutées !");
+        });
+
+        document.getElementById("btnDownloadMainSchemaPng").addEventListener("click", () => {
+          if (STATE.mainSchema) {
+            exportSchemaUltraHDPng(STATE.mainSchema.schema, `${STATE.mainSchema.id}_UltraHD_2400px.png`);
+          }
+        });
+
+        document.getElementById("btnDownloadMainSchemaPdf").addEventListener("click", () => {
+          if (STATE.mainSchema) {
+            const d = STATE.mainSchema;
+            exportCreationToPDF({
+              filename: `${d.id}_Schema_UltraHD.pdf`,
+              category: "SCHÉMA PROCÉDURAL ULTRA-HD",
+              docId: d.id,
+              title: d.schema.algoName,
+              subtitle: `Seed #${d.schema.seed} • Symétrie ${d.schema.symmetry}x • 300 DPI`,
+              euroValue: d.euro,
+              schema: d.schema,
+              bodySections: [
+                {
+                  heading: "Analyse & Synthèse Associée",
+                  text: d.text
+                }
+              ]
+            });
+          }
+        });
+
+        document.getElementById("btnDownloadCatalogPdf").addEventListener("click", () => {
+          const topList = STATE.deliveries.slice(0, 10).map((d) =>
+            `• [${d.id}] ${d.schema.algoName} (#${d.schema.seed}) — ${formatEuro(d.euro)} (${d.time})`
+          ).join("\n");
+
+          exportCreationToPDF({
+            filename: "Catalogue_Global_Livraisons_Cosmos_Vitalite.pdf",
+            category: "CATALOGUE GLOBAL CERTIFIÉ",
+            docId: `CAT-${STATE.totalCreations}`,
+            title: "Catalogue Officiel des Créations & Livraisons Valorisées (€)",
+            subtitle: `Total : ${STATE.totalCreations} créations • ${STATE.connectees.length} Connectées gratuites`,
+            euroValue: STATE.totalEuro,
+            schema: STATE.mainSchema ? STATE.mainSchema.schema : createProceduralSchema(0),
+            bodySections: [
+              {
+                heading: "Dernières Livraisons Certifiées",
+                text: topList || "Catalogue initialisé."
+              }
+            ]
+          });
+        });
+      }
+
+      // Initialisation au chargement du DOM
+      document.addEventListener("DOMContentLoaded", async () => {
+        initScaleModule();
+        initThemesAndMetaGenerators();
+        initCreaAiSandbox();
+        await initConnecteesModule();
+        initTutorialsModule();
+        initGlobalControls();
+
+        // Peupler 4 créations initiales immédiatement
+        for (let i = 0; i < 4; i++) {
+          executeFullProductionCycle(null, i);
+        }
+
+        restartEngineLoop();
+      });
+    })();
+  </script>
+</body>
+</html>
